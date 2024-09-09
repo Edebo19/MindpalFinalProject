@@ -6,8 +6,8 @@ import aboutteam1 from "../../../assets/aboutteam1.png"
 import aboutteam2 from "../../../assets/aboutteam2.png"
 import aboutteam3 from "../../../assets/aboutteam3.png"
 import aboutteam4 from "../../../assets/aboutteam4.png"
-import brandImage from '../../../assets/Aboutone.jpg'
-import valueImage from '../../../assets/valueImage.jpeg'
+import brandImage from '../../../assets/brandImage.jpg'
+import valueImage from '../../../assets/vaImage.jpg'
 
 const About = () => {
   return (
