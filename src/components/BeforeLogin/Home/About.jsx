@@ -6,6 +6,8 @@ import aboutteam1 from "../../../assets/aboutteam1.png"
 import aboutteam2 from "../../../assets/aboutteam2.png"
 import aboutteam3 from "../../../assets/aboutteam3.png"
 import aboutteam4 from "../../../assets/aboutteam4.png"
+import brandImage from '../../../assets/Aboutone.jpg'
+import valueImage from '../../../assets/valueImage.jpeg'
 
 const About = () => {
   return (
@@ -14,7 +16,9 @@ const About = () => {
 
         <div className="aboutHero"> <img src={abouthero} alt="" srcset="" /> </div>
         <div className="aboutBrand">
-          <div className="aboutBrandImage"></div>
+          <div className="aboutBrandImage">
+            <img src={brandImage} alt="" />
+          </div>
           <div className="aboutBrandText">
             <h4>Our Brand</h4>
             <p>
@@ -61,7 +65,9 @@ const About = () => {
               </p>
             </span>
           </div>
-          <div className="aboutValueImage"></div>
+          <div className="aboutValueImage">
+            <img src={valueImage} alt="" />
+          </div>
         </div>
         <h4 className="aboutTeam"  id="team">Meet our team</h4>
         <div className="aboutTeamImage">

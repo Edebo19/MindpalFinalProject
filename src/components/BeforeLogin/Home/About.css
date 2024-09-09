@@ -30,15 +30,21 @@
     height:auto;
     width: 100%;
     padding-inline: 65px;
-    /* background:green; */
+    background:green;
+    justify-content: space-between;
     display: flex;
     gap: 20px;
     margin-bottom: 50px;
 
     & .aboutBrandImage{
-        /* height: 100%; */
-        width: 55%;
+        height: 60vh;
+        width: 47%;
         background: orange;
+
+        & img{
+            height: 100%;
+            width: 100%;
+        }
     }
 
     & .aboutBrandText{
@@ -107,6 +113,7 @@
     display: flex;
     gap: 20px;
     margin-bottom: 50px;
+    justify-content: space-between;
 
     & .aboutValueText{
         width: 45%;
@@ -131,8 +138,14 @@
     }
 
     & .aboutValueImage{
-        width: 55%;
-        background: green;
+        height: 50vh;
+        width: 50%;
+        /* background: green; */
+
+        & img{
+            height: 100%;
+            width: 100%;
+        }
     }
 }
 
@@ -159,4 +172,7 @@
         /* background: blue; */
         border-radius: 50%;
     }
+}
+@media screen and (max-width:430px) {
+   
 }
