@@ -1,6 +1,6 @@
 import React from 'react'
 import "./About.css"
-import abouthero from "../../../assets/Abouthero.png"
+import abouthero from '../../../assets/abouthero.png'
 import aboutmission from "../../../assets/Aboutmission.png"
 import aboutteam1 from "../../../assets/Aboutteam1.png"
 import aboutteam2 from "../../../assets/Aboutteam2.png"
