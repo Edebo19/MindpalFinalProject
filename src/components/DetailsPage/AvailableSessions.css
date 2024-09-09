@@ -1,0 +1,113 @@
+.AvailableSessions{
+    height: 26rem;
+    width: 36rem;
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+.AvailableSide{
+    height: 100%;
+    width: 76%;
+    /* background: palegreen; */
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.Continue{
+    height: 100%;
+    width: 22%;
+    /* background: powderblue; */
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    & button{
+        height: 31px;
+        width: 98%;
+        border: none;
+        color: white;
+        border-radius: 8px;
+        font-size: 17px;
+        font-family: var(--generalFontFamily--);
+        background: #3FB480;
+    }
+    & button:hover{
+        cursor: pointer;
+        background-color: rgb(17, 163, 98);
+    }
+}
+.AvailableSideHeader{
+    height: 14%;
+    width: 100%;
+    /* background: gray; */
+
+    & p{
+        color: #004C41;
+        font-family: var(--generalFontFamily--);
+        font-size: 13px;
+        font-weight: 500;
+    }
+}
+.AvailableSideMain{
+    height: 62%;
+    width: 100%;
+    border: 2px solid #B0E4DD;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.ScheduledDate{
+    height: 100%;
+    width: 30%;
+    /* background: red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+.ScheduledDateUp{
+    height: 37%;
+    width: 100%;
+    /* background: #654a4a; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & h5{
+        font-family: var(--generalFontFamily--);
+        font-size: 18px;
+
+    }
+    & p{
+        font-family: var(--generalFontFamily--);
+        font-size: 16px;
+    }
+}
+.ScheduledDateDown{
+    height: 55%;
+    width: 100%;
+    /* background: #3FB480; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    & button{
+        height: 39px;
+        width: 90%;
+        border-radius: 8px;
+        background-color: transparent;
+        border: 1px solid #B0E4DD;
+        font-family: var(--generalFontFamily--);
+        font-size: 17px;
+        font-weight: 500;
+    }
+    & button:hover{
+        cursor: pointer;
+    }
+}

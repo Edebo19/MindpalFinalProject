@@ -1,0 +1,124 @@
+.Contact{
+    height: 115vh;
+    width: 100%;
+    background: #eefff7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.PrimaryBox{
+    height: 90%;
+    width: 56%;
+    /* background: white; */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.ContactHeader{
+    height: 12%;
+    width: 100%;
+    /* background: #766464; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & h2{
+        font-family: var(--generalFontFamily--);
+        font-size: 28px;
+    }
+    & p{
+        font-family: var(--generalFontFamily--);
+        font-size: 20px;
+        font-weight: 500;
+    }
+}
+.ContactBody{
+    height: 86%;
+    width: 100%;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.HoldContactInput{
+    height: 34%;
+    width: 100%;
+    /* background: teal; */
+    display: flex;
+    flex-direction: column;
+    gap: 30px;   
+
+    & input{
+        height: 35%;
+        width: 100%;
+        background: transparent;
+        padding-left: 10px;
+        font-family: var(--generalFontFamily--);
+        font-size: 20px;
+        border: 1.9px solid rgb(60, 60, 60);
+    }
+}
+.HoldContactTextArea{
+    height: 45%;
+    width: 100%;
+    /* background: teal; */
+    
+    & textarea{
+        width: 100%;
+        height: 90%;
+        background: transparent;
+        padding-left: 10px;
+        font-family: var(--generalFontFamily--);
+        font-size: 20px;
+        border: 1.9px solid rgb(60, 60, 60);
+    }
+}
+.HoldContactButton{
+    height: 15%;
+    width: 100%;
+    /* background: teal; */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    & button{
+        height: 60%;
+        width: 20%;
+        font-family: var(--generalFontFamily--);
+        font-size: 18.5px;
+        background: #3FB480;
+        color: #ffff;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+    } 
+    & button:disabled{
+        background: #87dcb9;
+        cursor: not-allowed;
+    } 
+}
+
+@media screen and (max-width: 430px) {
+    .PrimaryBox{
+        width: 100%;
+        background: #eefff7;
+    }
+    .ContactHeader{
+        & h2{
+            font-size: 24px;
+        }
+    }
+    .ContactBody{
+        background: #eefff7;
+    }
+    .HoldContactButton{
+        /* background: #000; */
+
+        & button{
+            height: 50%;
+            width: 26%;
+        }
+    }
+}

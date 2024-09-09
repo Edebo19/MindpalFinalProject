@@ -1,0 +1,162 @@
+.aboutContainer{
+    height: auto;
+    width: 100%;
+    background: #FFFFFF;
+}
+
+.aboutHero{
+    height: 88vh;
+    width: 100%;
+    /* background: red; */
+    margin-bottom: 50px;
+}
+.aboutHero img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.aboutMissionImage img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.aboutTeamImageContainer img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.aboutBrand{
+    height:auto;
+    width: 100%;
+    padding-inline: 65px;
+    /* background:green; */
+    display: flex;
+    gap: 20px;
+    margin-bottom: 50px;
+
+    & .aboutBrandImage{
+        /* height: 100%; */
+        width: 55%;
+        background: orange;
+    }
+
+    & .aboutBrandText{
+        width: 45%;
+        /* background: red; */
+        display: flex;
+        flex-direction: column;
+        gap: 13px;
+        
+    & h4{
+        font-family: var(--generalFontFamily--);
+        font-size: 26px;
+        display: flex;
+        justify-content: center;
+    }
+    & p{
+        font-family: var(--generalFontFamily--);
+        font-size: 18px;
+    }
+    }
+    
+}
+
+.aboutMission{
+    height:max-content;
+    width: 100%;
+    padding-inline: 65px;
+    display: flex;
+    gap: 20px;
+    margin-bottom: 50px;
+
+    & .aboutMissionText{
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        gap: 13px;
+        /* background: blue; */
+
+        & h4{
+            font-family: var(--generalFontFamily--);
+            font-size: 26px;
+        }
+
+        & span{
+            display: flex;
+            flex-direction: column;
+            gap: 13px;
+            & p{
+                font-family: var(--generalFontFamily--);
+                font-size: 18px;
+            }
+        }
+    }
+
+    & .aboutMissionImage{
+        width: 40%;
+        /* height: 70vh; */
+        /* background: grey; */
+    }
+}
+
+.aboutValue{
+    height:max-content;
+    width: 100%;
+    padding-inline: 65px;
+    display: flex;
+    gap: 20px;
+    margin-bottom: 50px;
+
+    & .aboutValueText{
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+        gap: 13px;
+
+        & h4{
+            font-family: var(--generalFontFamily--);
+            font-size: 26px;
+        }
+
+        & span{
+            display: flex;
+            flex-direction: column;
+            gap: 13px;
+            & p{
+                font-family: var(--generalFontFamily--);
+                font-size: 18px;
+            }
+        }
+    }
+
+    & .aboutValueImage{
+        width: 55%;
+        background: green;
+    }
+}
+
+.aboutTeam{
+    font-family: var(--generalFontFamily--);
+    font-size: 26px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.aboutTeamImage{
+    width: 100%;
+    height: 200px;
+    /* background: yellow; */
+    padding-inline: 65px;
+    margin-bottom: 100px;
+    display: flex;
+    justify-content: space-between;
+    
+    .aboutTeamImageContainer{
+        width: 160px;
+        height: 160px;
+        /* background: blue; */
+        border-radius: 50%;
+    }
+}
