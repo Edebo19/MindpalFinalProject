@@ -1,11 +1,11 @@
 import React from 'react'
 import "./About.css"
 import abouthero from '../../../assets/abouthero.png'
-import aboutmission from "../../../assets/Aboutmission.png"
-import aboutteam1 from "../../../assets/Aboutteam1.png"
-import aboutteam2 from "../../../assets/Aboutteam2.png"
-import aboutteam3 from "../../../assets/Aboutteam3.png"
-import aboutteam4 from "../../../assets/Aboutteam4.png"
+import aboutmission from "../../../assets/aboutmission.png"
+import aboutteam1 from "../../../assets/aboutteam1.png"
+import aboutteam2 from "../../../assets/aboutteam2.png"
+import aboutteam3 from "../../../assets/aboutteam3.png"
+import aboutteam4 from "../../../assets/aboutteam4.png"
 
 const About = () => {
   return (
