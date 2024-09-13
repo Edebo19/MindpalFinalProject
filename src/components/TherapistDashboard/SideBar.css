@@ -1,0 +1,103 @@
+.SideBar{
+    height: 100vh;
+    width: 25%;
+    background: white;
+    position: sticky;
+    top: 0;
+    bottom: 0;
+    z-index: 99999;
+}
+.SidebarHeader{
+    height: 16%;
+    width: 100%;
+    /* background: #000; */
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 30px;
+    align-items: center;
+}
+.SideBarLogoBox{
+    height: 100%;
+    width: 30%;
+    /* background: pink;     */
+
+    & img{
+        height: 100%;
+        width: 100%;
+    }
+}
+.TherapistSidebarNav{
+    height: 84%;
+    width: 100%;
+    /* background: rebeccapurple;  */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;     
+}
+nav{
+    height: 80%;
+    width: 100%;
+    /* background: #877474; */
+
+    & ul{
+        height: 70%;
+        width: 100%;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        padding-left: 30px;
+
+        & li{
+            list-style: none;
+            font-size: 19px;
+            font-family: var(--generalFontFamily--);
+            /* background: bisque; */
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 5px;
+            transform: scale(1);
+            transition: all 350ms ease;
+        }
+        & li:hover{
+            cursor: pointer;
+            transform: scale(1.02);
+            transition: all 350ms ease;
+        }
+    }
+}
+footer{
+    height: 12%;
+    width: 100%;
+    /* background: wheat; */
+    display: flex;
+    align-items: center;
+
+    & ul{
+        height: 70%;
+        width: 100%;
+        /* background: blue; */
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 25px;
+        padding-left: 30px;
+
+        & li{
+            list-style: none;
+            font-size: 19px;
+            font-family: var(--generalFontFamily--);
+            /* background: bisque; */
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 5px;
+        }
+    }
+}
+@media screen and (max-width:768px) {
+    .SideBar{
+        display: none;
+    }
+}

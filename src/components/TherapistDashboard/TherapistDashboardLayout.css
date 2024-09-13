@@ -1,0 +1,14 @@
+.TherapistDashboardLayout{
+    height: max-content;
+    width: 100%;
+    background: rgb(176, 228, 221);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+@media screen and (max-width:768px) {
+    .TherapistDashboardLayout{
+        flex-direction: column;
+    }
+}

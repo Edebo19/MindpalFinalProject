@@ -11,7 +11,7 @@ import { logout } from '../../Global/slice';
 const Header = () => {
     const Navigate = useNavigate()
     const [mobile, setMobile] = useState(false)
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const [isLoggedIn, setIsLoggedIn] = useState(true)
     const {pathname} = useLocation()
     // console.log(pathname)
 
