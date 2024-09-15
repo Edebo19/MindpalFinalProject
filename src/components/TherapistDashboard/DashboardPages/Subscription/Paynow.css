@@ -1,0 +1,72 @@
+.Paynow{
+    height: 65%;
+    width: 70%;
+    background: white;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+.MonthlyDiv{
+    height: 60%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    h1{
+        font-family: var(--generalFontFamily--);
+        font-size: 40px;
+        color: #3FB480;
+    }
+    p{
+        font-family: var(--generalFontFamily--);
+        font-size: 25px;
+        font-weight: 700;
+    }
+    span{
+        font-family: var(--generalFontFamily--);
+        font-size: 20px;
+        font-weight: 700;
+    }
+    .UnlimitedAccess{
+        height: 10%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding-left: 5px;
+        border-radius: 3px;
+        justify-content: flex-start;
+        background: linear-gradient(45deg, #B0E4DD 0%, #99beb9 50%, #4a5c59 100%);
+
+        p{
+            font-size: 19px;
+        }
+    }
+}
+.PaynowButton{
+    height: 15%;
+    width: 100%;
+    /* background: rgb(163, 120, 120); */
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-right: 20px;
+
+    & button{
+        height: 80%;
+        width: 35%;
+        background: #20b170;
+        border: none;
+        border-radius: 8px;
+        font-family: var(--generalFontFamily--);
+        font-size: 16px;
+        color: white;
+    }
+    button:hover{
+        cursor: pointer;
+    }
+}

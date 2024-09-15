@@ -1,0 +1,63 @@
+.SubSecondPage{
+    height: 100%;
+    width: 100%;
+    background: white;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.SecondPageHeader{
+    height: 15%;
+    width: 100%;
+}
+.PaymentHistoryTableHolder{
+    height: 84%;
+    width: 100%;
+    overflow: auto;
+    table {
+        height: 100%;
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 18px;
+        text-align: center;
+        height: 100%;
+        }
+    
+        th, td {
+        border: 1px solid #000;
+        padding: 12px;
+        }
+        thead{
+            position: sticky;
+            top: 0;
+            bottom: 0;
+            z-index: 9999;
+        }
+        th {
+        background-color: #D9F2EF;
+        }
+        
+        tr:nth-child(even) {
+        background-color: #f9f9f9;
+        }
+        
+        h2 {
+        margin: 0;
+        font-size: 20px;
+        }
+        td
+        .PaymentStatusButton{
+            background: rgb(81, 190, 81);
+            width: max-content;
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-bottom: 5px;
+            border-radius: 15px;
+            /* color: rgb(230, 225, 225); */
+            display: flex;
+            justify-self: center;
+        }
+    }

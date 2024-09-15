@@ -22,6 +22,8 @@ import TherapistDashBoard from './components/TherapistDashboard/TherapistDashBoa
 import TherapistHome from './components/TherapistDashboard/DashboardPages/TherapistHome';
 import TherapistAppointments from './components/TherapistDashboard/DashboardPages/TherapistAppointments';
 import TherapistPatients from './components/TherapistDashboard/DashboardPages/TherapistPatients';
+import TherapistProfile from './components/TherapistDashboard/DashboardPages/TherapistProfile';
+import TherapistSubscription from './components/TherapistDashboard/DashboardPages/TherapistSubscription';
 
 // https://blog.logrocket.com/using-react-toastify-style-toast-messages/
 
@@ -29,7 +31,6 @@ import TherapistPatients from './components/TherapistDashboard/DashboardPages/Th
 
 
 const App = () => {
-  const [pick, setPick] = useState(1)
   const router = createHashRouter([
     {
       path: "/therapist",
@@ -106,6 +107,14 @@ const App = () => {
             {
               path:"progress",
               element: <TherapistPatients/>
+            },
+            {
+              path:"my-profile",
+              element: <TherapistProfile/>
+            },
+            {
+              path:"subscription",
+              element: <TherapistSubscription/>
             }
           ]
         }

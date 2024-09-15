@@ -15,6 +15,7 @@
     justify-content: flex-start;
     padding-left: 30px;
     align-items: center;
+    justify-content: center;
 }
 .SideBarLogoBox{
     height: 100%;
@@ -48,7 +49,7 @@ nav{
         gap: 25px;
         padding-left: 30px;
 
-        & li{
+        & .NavNotActive{
             list-style: none;
             font-size: 19px;
             font-family: var(--generalFontFamily--);
@@ -58,11 +59,28 @@ nav{
             align-items: center;
             gap: 5px;
             transform: scale(1);
+            color: black;
+            text-decoration: none;
             transition: all 350ms ease;
         }
-        & li:hover{
+        .NavActive{
+            list-style: none;
+            font-size: 19px;
+            font-family: var(--generalFontFamily--);
+            /* background: bisque; */
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 5px;
+            transform: scale(1.01);
+            color: black;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 350ms ease;
+        }
+        & .NavNotActive:hover{
             cursor: pointer;
-            transform: scale(1.02);
+            transform: scale(1.01);
             transition: all 350ms ease;
         }
     }

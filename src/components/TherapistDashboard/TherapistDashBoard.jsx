@@ -4,7 +4,7 @@ import TherapistHome from './DashboardPages/TherapistHome';
 import TherapistAppointments from './DashboardPages/TherapistAppointments';
 import { Outlet } from 'react-router-dom';
 
-const TherapistDashBoard = ({ pick }) => {
+const TherapistDashBoard = () => {
   return (
     <div className='TherapistDashBoard'>
       <Outlet/>

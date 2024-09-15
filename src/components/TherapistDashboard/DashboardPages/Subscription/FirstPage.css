@@ -1,0 +1,138 @@
+.SubFirstPage{
+    height: 100%;
+    width: 100%;
+    background: white;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.SubscribedCard{
+    height: 65%;
+    width: 100%;
+    border-radius: 5px;
+    border: 2px solid rgb(50, 49, 49);
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.UnsubscribedCard{
+    height: 65%;
+    width: 100%;
+    border-radius: 5px;
+    border: 2px solid rgb(50, 49, 49);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1px;
+
+    .UnsubscribedTextHolder{
+        height: 45%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+
+        h2{
+            font-family: var(--generalFontFamily--);
+            font-size: 26px;
+        }
+        p{
+            text-align: center;
+        }
+    }
+    button{
+        width: max-content;
+        padding: 7px;
+        border: none;
+        font-family: var(--generalFontFamily--);
+        font-size: 18px;
+        background: green;
+        color: rgb(230, 225, 225);
+        border-radius: 5px;
+        transform: scale(1);
+        transition: all 400ms ease;
+    }
+    button:hover{
+        cursor: pointer;
+        transform: scale(1.03);
+        transition: all 400ms ease;
+    }
+}
+.SubscrbedOnMindpal{
+    height: 30%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+    & h2{
+        font-family: var(--generalFontFamily--);
+        font-size: 25px;
+    }
+    & p{
+        font-family: var(--generalFontFamily--);
+        font-size: 18px;
+    }
+}
+.NextBilling{
+    height: 30%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+    & h2{
+        font-family: var(--generalFontFamily--);
+        font-size: 25px;
+    }
+    & p{
+        font-family: var(--generalFontFamily--);
+        font-size: 18px;
+    }
+}
+.HoldCancelButton{
+    height: 35%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 12px;
+
+    & button{
+        height: 40%;
+        width: max-content;
+        padding-left: 6px;
+        padding-right: 6px;
+        border-radius: 5px;
+        background: inherit;
+        border: 1px solid red;
+        font-family: var(--generalFontFamily--);
+        font-size: 15px;
+        color: red;
+        transform: scale(1);
+        transition: all 350ms ease;
+    }
+    button:hover{
+        cursor: pointer;
+        transform: scale(1.025);
+        transition: all 350ms ease;
+    }
+}
+.SubscriptionPolicy{
+    height: 30%;
+    width: 100%;
+    border-radius: 5px;
+    border: 2px solid rgb(50, 49, 49);
+    padding: 5px;
+}
+@media screen and (max-width:768px) {
+    .SubFirstPage{
+        
+    }
+}

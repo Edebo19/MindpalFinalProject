@@ -1,5 +1,5 @@
 .TherapistDashBoard{
-    height: 100vh;
+    height: max-content;
     width: 73%;
     background: rgb(176, 228, 221);
     padding-right: 10px;

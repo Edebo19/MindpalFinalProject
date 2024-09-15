@@ -1,0 +1,223 @@
+.TherapistProfile{
+    height: max-content;
+    width: 100%;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    margin-top: 20px;
+    gap: 30px;
+    margin-bottom:30px;
+    border-radius: 20px;
+}
+.HoldProfileTherapist{
+    height: 65vh;
+    width: 100%;
+    /* background: rebeccapurple; */
+
+    .TherapistProfileHeader{
+        height: 18%;
+        width: 100%;
+
+        & h2{
+            font-family: var(--generalFontFamily--);
+            font-size: 25px;
+        }
+
+        & p{
+            font-family: var(--generalFontFamily--);
+            font-size: 14px;
+        }
+    }
+    .ProfileForm{
+        height: 80%;
+        width: 78%;
+        /* background: yellow; */
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .InputHolder{
+            height: 32%;
+            width: 100%;
+            /* background: #8a7777; */
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+
+            p{
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                font-size: 17px;
+            }
+            .input{
+                height: 80%;
+                width: 100%;
+                background: transparent;
+                border: 1px solid rgb(65, 63, 63);
+                border-radius: 8px;
+                padding-left: 10px;
+                display: flex;
+                align-items: center;
+                font-size: 15   px;
+                color: black;
+            }
+        }
+        button{
+            height: 17%;
+            width: max-content;
+            background: green;
+            border: none;
+            border-radius: 8px;
+            font-family: var(--generalFontFamily--);
+            font-size: 17px;
+            padding: 10px;
+            color: white;
+            cursor: pointer;
+
+            @media screen and (max-width: 768px) {
+                height: max-content;
+            }
+        }
+    }
+    form{
+        height: 80%;
+        width: 78%;
+        /* background: yellow; */
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .InputHolder{
+            height: 28%;
+            width: 100%;
+            /* background: #8a7777; */
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+
+            p{
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                font-size: 17px;
+            }
+            input{
+                height: 70%;
+                width: 100%;
+                background: transparent;
+                /* border: 1px; */
+                border-radius: 8px;
+                padding-left: 10px;
+                outline: none;
+                font-size: 14px;
+                color: #B2B2B2;
+            }
+        }
+        button{
+            height: 17%;
+            width: max-content;
+            background: green;
+            border: none;
+            border-radius: 8px;
+            font-family: var(--generalFontFamily--);
+            font-size: 17px;
+            padding: 10px;
+            color: white;
+            cursor: pointer;
+
+            @media screen and (max-width: 768px) {
+                height: max-content;
+            }
+        }
+    }
+}
+
+.HoldTherapistPassword{
+    height: 68vh;
+    width: 100%;
+    /* background: peru; */
+
+    form{
+        height: 88%;
+        width: 78%;
+        /* background: yellow; */
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .InputHolder{
+            height: 32%;
+            width: 100%;
+            /* background: #8a7777; */
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+
+            p{
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                font-size: 17px;
+            }
+            input{
+                height: 78%;
+                width: 100%;
+                background: transparent;
+                /* border: 1px; */
+                border-radius: 8px;
+                padding-left: 10px;
+                outline: none;
+                font-size: 14px;
+                color: #B2B2B2;
+            }
+        }
+        button{
+            height: 17%;
+            width: max-content;
+            background: green;
+            border: none;
+            border-radius: 8px;
+            font-family: var(--generalFontFamily--);
+            font-size: 17px;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+
+            @media screen and (max-width: 768px) {
+                height: max-content;
+            }
+        }
+    }
+}
+@media screen and (max-width:768px) {
+    .TherapistProfile{
+        margin-left: 5px;
+        margin-bottom: 30px;
+    }
+    .InputHolder{
+        /* background: red; */
+    }
+    input{
+        height: 20%;
+    }
+    .HoldProfileTherapist{
+        .ProfileForm{
+            .InputHolder{
+                .input{
+                    height: 60%;
+                }
+            }
+        }
+    }
+    .HoldTherapistPassword{
+        margin-bottom: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        form{
+            gap: 5px;
+            .InputHolder{
+                input{
+                    height: 55%;
+                }
+            }
+        }
+    }
+    
+}

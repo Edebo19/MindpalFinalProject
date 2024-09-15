@@ -67,11 +67,13 @@ const TherapistHome = () => {
                 </tr>
               </thead>
               <tbody>
-                {/* <td><p>Consultation</p></td> */}
-                <td><p>Jane</p></td>
-                <td><p>13/09/2024</p></td>
-                <td><p>17:05</p></td>
-                <td><p>Virtual</p></td>
+              <tr>
+                  {/* <td><p>Consultation</p></td> */}
+                  <td><p>Jane</p></td>
+                  <td><p>13/09/2024</p></td>
+                  <td><p>17:05</p></td>
+                  <td><p>Virtual</p></td>
+    </tr>
               </tbody>
             </table>
           </div>

@@ -3,7 +3,7 @@ import './TherapistsAppointment.css'
 import { BiSearch } from 'react-icons/bi'
 
 const TherapistAppointments = () => {
-  const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 1,1,1, 1,1 , 1, 1, 1, 1 ,1, 1, 1, 1, 1,1 ]
+  const data = [1, 2, 3, 4,1 , 1, 1, 1, 1 ,1, 1, 1, 1, 1,1 ]
   return (
     <div className='TherapistAppointments'>
       <div className="TherapistAppointmentHeader">
@@ -40,7 +40,7 @@ const TherapistAppointments = () => {
                 <td><p>13/09/2024</p></td>
                 <td><p>17:05</p></td>
                 <td><p>Virtual</p></td>
-                <td><p className='StatusButton'>Confirmed</p></td>
+                <td style={{display:"flex", justifyContent:"center"}}><p className='StatusButton'>Confirmed</p></td>
               </tbody>
                 ))
               }
