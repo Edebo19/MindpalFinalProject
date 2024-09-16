@@ -1,7 +1,7 @@
 import React from 'react'
 import "./About.css"
 import abouthero from '../../../assets/abouthero.png'
-import aboutmission from "../../../assets/aboutmission.png"
+import aboutmission from "../../../assets/aboutmission.jpg"
 import aboutteam1 from "../../../assets/aboutteam1.png"
 import aboutteam2 from "../../../assets/aboutteam2.png"
 import aboutteam3 from "../../../assets/aboutteam3.png"
@@ -35,19 +35,16 @@ const About = () => {
             <h4>Our Mission</h4>
             <span>
               <p>
-                MindPal is dedicated to connecting individuals with licensed therapists, fostering a supportive community that encourages growth, self-care, and resilience. We believe that every mind deserves the opportunity to shine, and we're committed to empowering individuals to take control of their mental wellness.
-              </p>
-              <p>
-                Through our platform, we provide accessible, convenient, and stigma-free access to professional guidance, support, and resources. Our goal is to create a safe and inclusive space where individuals can navigate life's challenges with confidence, cultivate meaningful connections, and unlock their full potential.
-              </p>
-              <p>
-                By harnessing the power of technology and human connection, we aim to break down barriers to mental health services and make wellness a reality for all.
+                MindPal is dedicated to connecting individuals with licensed therapists, empowering them to take control of their mental wellness. We believe that every mind deserves the opportunity to shine.
               </p>
             </span>
           </div>
           <div className="aboutMissionImage"> <img src={aboutmission} alt="" srcset="" /> </div>
         </div>
         <div className="aboutValue">
+          <div className="aboutValueImage">
+            <img src={valueImage} alt="" />
+          </div>
           <div className="aboutValueText">
             <h4>Our Value</h4>
             <span>
@@ -65,18 +62,13 @@ const About = () => {
               </p>
             </span>
           </div>
-          <div className="aboutValueImage">
-            <img src={valueImage} alt="" />
-          </div>
         </div>
         <h4 className="aboutTeam"  id="team">Meet our team</h4>
         <div className="aboutTeamImage">
-          <div className="aboutTeamImageContainer"> <img src={aboutteam1} alt="" srcset="" /> </div>
-          <div className="aboutTeamImageContainer"> <img src={aboutteam2} alt="" srcset="" /> </div>
-          <div className="aboutTeamImageContainer"> <img src={aboutteam3} alt="" srcset="" /> </div>
-          <div className="aboutTeamImageContainer"> <img src={aboutteam4} alt="" srcset="" /> </div>
-          <div className="aboutTeamImageContainer"></div>
-          <div className="aboutTeamImageContainer"></div>
+          <div className="aboutTeamImageContainer"> <img src={aboutteam1} alt="" srcset="" /> <p className="aboutT" style={{display: "flex", justifyContent:"center"}}><span>Dorcas</span> <span>Adejoh</span></p></div>
+          <div className="aboutTeamImageContainer"> <img src={aboutteam2} alt="" srcset="" /> <p className="aboutT" style={{display: "flex", justifyContent:"center"}}><span>Peace</span> <span>Okelemu</span></p> </div>
+          <div className="aboutTeamImageContainer"> <img src={aboutteam3} alt="" srcset="" /> <p className="aboutT" style={{display: "flex", justifyContent:"center"}}><span>Chidera</span> <span>Nwosu</span></p> </div>
+          <div className="aboutTeamImageContainer"> <img src={aboutteam4} alt="" srcset="" /> <p className="aboutT" style={{display: "flex", justifyContent:"center"}}><span>Isaac</span> <span>Odamene</span> </p> </div>
         </div>
 
       </div>   
