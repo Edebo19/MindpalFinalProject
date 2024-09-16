@@ -72,7 +72,7 @@ const Login = () => {
       toast.success("Login successful!");
       setLoading(false);
       setTimeout(() => {
-        navigate("/");
+        navigate("/loggedin");
       }, 3000); 
     } catch (error) {
       toast.error("An error occurred.");
