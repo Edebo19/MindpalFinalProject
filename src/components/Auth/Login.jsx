@@ -23,7 +23,6 @@ const Login = () => {
         <div className="loginInformation">
           <span className="topWriteUp">
             <h1 className="h1a">Welcome back!</h1>
-            <h1 className="h1b">Login</h1>
             <p>Enter to get unlimited access to data & information</p>
           </span>
           <div className="loginInput">

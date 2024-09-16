@@ -7,24 +7,24 @@
 }
 
 .thesignupLogoBox{
-    width: 38%;
+    width: 30%;
     height: 100%;
-    padding-top: 50px;
-    padding-left:180px;
+    padding-top: 5px;
+    /* padding-left:180px; */
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    /* gap: 25px; */
     position: fixed;
+    align-items: center;
 
     & .thesignupLogo{
-        width: 170px;
-        height:170px;
-        margin-left: 20px;
+        width: 250px;
+        height:250px;
     }
     
     & h4{
         font-family: var(--generalFontFamily--);
-        font-size: 22px;
+        font-size: 30px;
         /* margin-left: 50px; */
     }
 }
@@ -36,21 +36,21 @@
 
 
 .thesignupInformation{
-    width: 62%;
+    width: 70%;
     height: 100%;
     background: #E6F6F4;
     border-bottom-left-radius: 100px;
     border-top-left-radius: 100px;
     padding-left: 70px;
-    margin-left: 38%;
+    margin-left: 30%;
     /* padding-top: 65px; */
 
     & .thesignupWrtiteup{
         display: flex;
         gap: 10px;
-        margin-top: 20px;
+        margin-top: 40px;
         margin-bottom:75px;
-        /* margin-left:450px; */
+        margin-left: 66%;
     }
     & .thesignupP{
         font-family: var(--generalFontFamily--);
@@ -68,18 +68,18 @@
     & .thesignupBox{
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 40px;
 
         & .thesignupInputBox{
-            width: 500px;
+            width: 83%;
             height: 65px;
             border: 2px solid #908D8D;
             border-radius: 8px;
             display: flex;
-            gap:7px;
+            gap:10px;
 
             & .thesignupInput{
-                width:440px;
+                width: 90%;
                 height: 61px;
                 padding-left: 10px;
                 font-size: 18px;
@@ -105,9 +105,145 @@
             font-size: 20px;
             font-weight: bold;
             border-radius: 5px;
-            margin-left: 370px;
+            margin-left: 68%;
             margin-bottom: 100px;
             cursor: pointer;
         }
     }
+}
+
+
+
+
+
+@media screen and (width < 1024px){
+    .thesignup{
+        width: 100%;
+        height: auto;
+        background: #E6F6F4;
+        display: flex;
+        position: relative;
+        padding-inline: 5%;
+    }
+    
+    .thesignupLogoBox{
+        width: 100%;
+        height: auto;
+        padding-top: 0px;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top:50px;
+        padding-right: 10%;
+        align-items: center;
+        justify-content: center;
+    
+        & .thesignupLogo{
+            width: 150px;
+            height:150px;
+        }
+        
+        & h4{
+            font-family: var(--generalFontFamily--);
+            font-size: 30px;
+            /* margin-left: 50px; */
+        }
+    }
+    .thesignupLogo img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    
+    .thesignupInformation{
+        width: 100%;
+        height: auto;
+        background: #E6F6F4;
+        border-bottom-left-radius: 0px;
+        border-top-left-radius: 0px;
+        padding-left: 0px;
+        margin-left: 0px;
+        /* padding-top: 65px; */
+    
+        & .thesignupWrtiteup{
+            display: flex;
+            gap: 10px;
+            margin-top: 0px;
+            margin-bottom:0px;
+            margin-left: 0px;
+        }
+        & .thesignupP{
+            font-family: var(--generalFontFamily--);
+            font-size: 18px;
+            position: absolute;
+            top:12px;
+            right:19%;
+        }
+        & .thesignuplogin{
+            font-family: var(--generalFontFamily--);
+            font-size: 18px;
+            position: absolute;
+            top:12px;
+            right:5%;
+        }
+        
+        & .thesignuplogin:hover{
+    
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        & .thesignupBox{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            
+            & .thesignupP1{
+                font-family: var(--generalFontFamily--);
+                font-size: 18px;
+                margin-top: 300px;
+            }
+            & .thesignupInputBox{
+                width: 100%;
+                height: 65px;
+                border: 2px solid #908D8D;
+                border-radius: 8px;
+                display: flex;
+                gap:10px;
+    
+                & .thesignupInput{
+                    width: 100%;
+                    height: 61px;
+                    padding-left: 10px;
+                    font-size: 18px;
+                    background:none;
+                    border: none;
+                    outline: none;
+                }
+                & .thesignupEye{
+                    width:25px;
+                    height: 61px;
+                    font-size: 25px;
+                    display: flex;
+                    align-items: center;
+                }
+            }
+            & .thesignupButton{
+                width:100%;
+                height: 60px;
+                border: none;
+                background: #3FB480;
+                color: #FFFFFF;
+                font-family: var(--generalFontFamily--);
+                font-size: 20px;
+                font-weight: bold;
+                border-radius: 5px;
+                margin-left: 0px;
+                margin-bottom: 100px;
+                cursor: pointer;
+                margin-top: 22px;
+            }
+        }
+    }
+    
 }
