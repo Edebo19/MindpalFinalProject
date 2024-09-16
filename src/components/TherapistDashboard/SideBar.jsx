@@ -8,6 +8,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { AiOutlineUser } from 'react-icons/ai';
 
 const SideBar = () => {
+  const navigate = useNavigate()
 
   return (
     <div className='SideBar'>
@@ -39,7 +40,7 @@ const SideBar = () => {
         </nav>
         <footer>
           <ul>
-            <li>
+            <li onClick={()=> navigate("/therapistlogin")}>
               <BiLogOut size={20} aria-label="Logout" />
               Logout
             </li>

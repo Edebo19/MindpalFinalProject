@@ -106,7 +106,14 @@ footer{
             list-style: none;
             font-size: 19px;
             font-family: var(--generalFontFamily--);
-            /* background: bisque; */
+            border: 1px solid red;
+            width: max-content;
+            padding: 9px;
+            padding-left: 10px;
+            padding-right: 10px;
+            border-radius: 8px;
+            color: red;
+            cursor: pointer;
             display: flex;
             flex-direction: row;
             align-items: center;
