@@ -103,7 +103,6 @@ const Header = () => {
                             <nav style={{ textDecoration: "none" }} className={about ? "NavActive" : "NavNotActive"} onClick={()=>handleNav("/about")}>About</nav>
                             <nav style={{ textDecoration: "none" }} className={contact ? "NavActive" : "NavNotActive"} onClick={()=>handleNav("/contact")}>Contact</nav>
                             <nav style={{ textDecoration: "none" }} className={team ? "NavActive" : "NavNotActive"} onClick={()=>handleNav("/team")} >Team</nav>
-                            <nav style={{ textDecoration: "none" }} className={therapist ? "NavActive" : "NavNotActive"} onClick={()=>Navigate("/therapist")} >Therapist</nav>
                         </ul>
                     </nav>
                     <div className="Auth">
