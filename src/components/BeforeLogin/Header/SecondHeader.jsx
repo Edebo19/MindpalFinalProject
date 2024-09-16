@@ -8,10 +8,10 @@ import { MdManageAccounts } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../Global/slice';
 
-const Header = () => {
+const SecondHeader = () => {
     const Navigate = useNavigate()
     const [mobile, setMobile] = useState(false)
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const [isLoggedIn, setIsLoggedIn] = useState(true)
     const {pathname} = useLocation()
     // console.log(pathname)
 
@@ -136,4 +136,4 @@ const Header = () => {
     )
 }
 
-export default Header
+export default SecondHeader

@@ -25,6 +25,8 @@ import TherapistPatients from './components/TherapistDashboard/DashboardPages/Th
 import TherapistProfile from './components/TherapistDashboard/DashboardPages/TherapistProfile';
 import TherapistSubscription from './components/TherapistDashboard/DashboardPages/TherapistSubscription';
 import Therapist from './components/BeforeLogin/Home/Therapist';
+import HoldAfterLogin from './components/BeforeLogin/HoldAfterLogin';
+import TherapistLogin from './components/Auth/TherapistLogin';
 
 // https://blog.logrocket.com/using-react-toastify-style-toast-messages/
 
@@ -70,12 +72,42 @@ const App = () => {
       ]
     },
     {
+      path: "/loggedin",
+      element:<HoldAfterLogin/>,
+      children: [
+        {
+          path: "",
+          element: <Home/>
+        },
+        {
+          path: "about",
+          element: <About/>
+        },
+        {
+          path: "contact",
+          element: <Contact/>
+        },
+        {
+          path: "team",
+          element: <Team/>
+        },
+        {
+          path:"therapist",
+          element: <Therapist/>
+        }
+      ]
+    },
+    {
       path: "login",
       element: <Login/>
     },
     {
       path: "signup",
       element: <Signup/>
+    },
+    {
+      path: "therapistlogin",
+      element: <TherapistLogin/>
     },
     {
       path: "forgot-password",

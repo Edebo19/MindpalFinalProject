@@ -61,7 +61,6 @@
 .HeroImage{
     height: 100%;
     width: max-content;
-    background: rgb(158, 158, 171);
 
     & img{
         height: 100%;
@@ -143,7 +142,6 @@
 .TherapistAccessPicture{
     height: 90%;
     width: 40%;
-    background: #000;
     background-image: url(../../../assets/Accesstotherapist.png);
     background-size: cover;
     border-top-left-radius: 40px;

@@ -48,7 +48,7 @@ const Thesignup = () => {
               <input className="thesignupInput" placeholder='Password'/>
               <div className="thesignupEye"> <IoEye /> </div>
             </div>
-            <button className="thesignupButton" onClick={()=> nav("/login")}>Sign up</button>
+            <button className="thesignupButton" onClick={()=> nav("/therapistlogin")}>Sign up</button>
           </div>
         </div>
 

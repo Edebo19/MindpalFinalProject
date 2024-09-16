@@ -5,12 +5,12 @@ import { IoEye } from "react-icons/io5";
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-const Login = () => {
+const TherapistLogin = () => {
   const nav = useNavigate()
   const dispatch = useDispatch()
 
   const loginUser =()=>{
-    nav("/loggedin")
+    nav("/user/therapist-dashboard/home")
   }
   return (
     <>
@@ -47,4 +47,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default TherapistLogin
