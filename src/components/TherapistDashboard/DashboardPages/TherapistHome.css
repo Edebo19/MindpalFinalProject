@@ -88,6 +88,7 @@
     & button:hover{
         cursor: pointer;
         transform: scale(1.03);
+        background: rgb(0, 128, 60);
         transition: all 350ms ease;
     }
 }

@@ -3,7 +3,7 @@ import './FirstPage.css'
 
 const SubFirstPage = ({setPaynow}) => {
 
-    const [subscription, setSubscription]= useState(true)
+    const [subscription, setSubscription]= useState(false)
   return (
     <div className='SubFirstPage'>
         {

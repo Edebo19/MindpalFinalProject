@@ -1,7 +1,14 @@
 import React from 'react'
 import './TherapistHome.css'
+import { useNavigate } from 'react-router-dom'
+
 
 const TherapistHome = () => {
+  const navigate = useNavigate()
+
+  const handleClick = () => {
+    navigate("/user/therapist-dashboard/subscription", { replace: true });
+  };
   return (
     <div className='TherapistHome'>
       <div className="Welcome">
@@ -23,13 +30,12 @@ const TherapistHome = () => {
             <p>(Monthly)</p>
           </div>
           <div className="remainingTimeForSubscription">
-              <p>2 weeks remaining
-                on your subscription
+              <p>You are not yet subscribed for this month.
                 </p>
             </div>
           </div>
           <div className="ManageButtonHolder">
-            <button>Manage</button>
+            <button onClick={handleClick}>Manage</button>
           </div>
         </div>
       </div>
