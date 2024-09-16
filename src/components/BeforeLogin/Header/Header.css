@@ -1,11 +1,14 @@
 .Header{
-    height: 63px;
+    height: 67px;
     width: 100%;
     background: #F8FFFC;
     display: flex;
     justify-content: center;
     padding: 2px;
-    
+    position: sticky;
+    top: 0;
+    bottom: 0;
+    z-index: 9999;
 }
 .HeaderWrapper{
     height: 100%;
@@ -36,7 +39,7 @@
 }
 .mainNav{
     height: 100%;
-    width: 65%;
+    width: max-content;
     
 
     & ul{
@@ -45,9 +48,8 @@
         background: #F8FFFC;
         display: flex;
         flex-direction: row;
-        padding-top: 10px;
         align-items: center;
-        gap: 20px;
+        gap: 30px;
 
         & .NavActive{
             list-style: none;
@@ -197,6 +199,35 @@
             width: 46%;
             border-radius: 40px;
             font-size: 90px;
+        }
+    }
+}
+@media screen and (min-width: 769px) and (max-width:1200px) {
+    .Auth{
+        width: 40%;
+        gap: 5px;
+        justify-content: flex-end;
+        & .Account{
+            font-size: 14px;
+        }
+        & button{
+            height: 38px;
+            width: 120px;
+            font-size: 14px;
+        }
+    }
+    .NavAndAuth{
+        width: 70%;
+    }
+    .mainNav{
+        & ul{
+            gap: 20px;
+            & .NavActive{
+                font-size: 14px;
+            }
+            & .NavNotActive{
+                font-size: 14px;
+            }
         }
     }
 }

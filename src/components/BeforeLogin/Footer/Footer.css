@@ -15,6 +15,10 @@
     justify-content: space-between;
     padding-left: 65px;
     padding-right: 65px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .FooterLogoHolder{
     height: 100%;
@@ -144,7 +148,7 @@
         font-weight: 400;
     }
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 560px) {
     .MainFooterThings{
         height: max-content;
         /* background: #000; */
@@ -152,6 +156,7 @@
         flex-direction: column;
         padding-left: 0px;
         padding-right: 0px;
+        padding-bottom: 10px;
     }
     .FooterLogoHolder{
         width: 100%;
@@ -160,8 +165,8 @@
         padding-bottom: 0;
     }
     .FooterImage{
-        height: 100%;
-        width: 70%;
+        height: 85%;
+        width: 65%;
     }
     .AboutAndPrivacy{
         width: 100%;
@@ -221,6 +226,30 @@
         padding-top: 10px;
         & h5{
             font-size: 16.5px;
+        }
+    }
+}
+@media screen and (min-width: 690px) and (max-width:850px) {
+
+    .AboutSection{
+        & h3{
+            font-size: 17px;
+        }
+        & h2{
+            font-size: 18px;
+        }
+    }
+    .PrivacySection{
+        & h3{
+            font-size: 17px;
+        }
+        & h2{
+            font-size: 18px;
+        }
+    }
+    .GetInTouch{
+        & h3{
+            font-size: 18px;
         }
     }
 }

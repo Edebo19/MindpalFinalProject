@@ -1,0 +1,50 @@
+.Therapist{
+    height: max-content;
+    width: 100%;
+    background: #cfc8c8;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.MainTherapistCircles{
+    height: max-content;
+    width: 100%;
+    background: transparent;
+    display: flex;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+.TherapistImagebox{
+    height: 230px;
+    width: 240px;
+    /* background: seagreen; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.TherapistImage{
+    height: 215px;
+    width: 210px;
+    background: rgb(64, 58, 58);
+    border-radius: 50%;
+
+    & img{
+        height: 100%;
+        width: 100%;
+        border-radius: 50%;
+    }
+}
+.TherapistName{
+    height: 40px;
+    width: 100%;
+    /* background: yellow; */
+    text-align: center;
+
+    & p{
+        font-family: var(--generalFontFamily--);
+        font-size: 22px;
+    }
+}

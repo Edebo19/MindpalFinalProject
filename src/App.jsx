@@ -24,6 +24,7 @@ import TherapistAppointments from './components/TherapistDashboard/DashboardPage
 import TherapistPatients from './components/TherapistDashboard/DashboardPages/TherapistPatients';
 import TherapistProfile from './components/TherapistDashboard/DashboardPages/TherapistProfile';
 import TherapistSubscription from './components/TherapistDashboard/DashboardPages/TherapistSubscription';
+import Therapist from './components/BeforeLogin/Home/Therapist';
 
 // https://blog.logrocket.com/using-react-toastify-style-toast-messages/
 
@@ -61,6 +62,10 @@ const App = () => {
         {
           path: "team",
           element: <Team/>
+        },
+        {
+          path:"therapist",
+          element: <Therapist/>
         }
       ]
     },

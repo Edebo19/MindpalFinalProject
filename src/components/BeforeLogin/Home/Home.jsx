@@ -61,7 +61,7 @@ const Home = () => {
   const Reviews = [
     {
       image: review1,
-      Review: "Expert care, empathetic listeners,and personalizedguidance Mindpal exceeded my expectations."
+      Review: "Expert care, empathetic listeners, and personalized guidance. Mindpal exceeded my expectations."
     },
     {
       image: review2,
@@ -76,11 +76,15 @@ const Home = () => {
     <div className='Home'>
       <div className="HomeHero">
         <div className="HeroImageText">
-          <h1>
+         <div className="HeroText">
+         <h1>
           Let’s build a <br/>  world of healthy minds.
           </h1>
           <p>Discover a journey to mental well-being with expert guidance, supportive communities, and personalized resources</p>
+         </div>
+          <div className="HeroButton">
           <button>Book a session</button>
+          </div>
         </div>
           <div className="HeroImage">
             <img src={heroImage} alt="" />
@@ -198,7 +202,7 @@ const Home = () => {
                 <div className="OurClientsCard" 
                  data-aos="fade-up" 
                 data-aos-easing="linear"
-                data-aos-duration="900">
+                data-aos-duration="700">
               <div className="clientImage">
                 <div className="MainImage">
                   <img src={e.image} alt="" />

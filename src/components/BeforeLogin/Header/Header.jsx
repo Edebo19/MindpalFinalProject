@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './Header.css'
 import logo from '../../../assets/mainmain.png'
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
-import { AiOutlineMenu } from "react-icons/ai";
+import { AiOutlineMenu, AiOutlineUser } from "react-icons/ai";
 import NavBar from '../../BeforeLogin/Header/NavBar'
 import { MdManageAccounts } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
@@ -19,6 +19,7 @@ const Header = () => {
     const [home, setHome] = useState(false)
     const [about, setAbout] = useState(false)
     const [contact, setContact] = useState(false)
+    const [therapist, setTherapist] = useState(false)
     const [team, setTeam] = useState(false)
     useEffect(()=>{
         if (pathname === "/"){
@@ -31,16 +32,24 @@ const Header = () => {
         setHome(false)
         setContact(false)
         setTeam(false)
+        setTherapist(false)
          }else  if (pathname === "/contact"){
             setAbout(false)
             setHome(false)
             setContact(true)
             setTeam(false)
-        
-         }else  if (pathname === "/team"){
+            setTherapist(false)
+         }else  if (pathname === "/therapist"){
             setAbout(false)
             setHome(false)
             setContact(false)
+            setTeam(false)
+            setTherapist(true)
+         } else  if (pathname === "/team"){
+            setAbout(false)
+            setHome(false)
+            setContact(false)
+            setTherapist(false)
             setTeam(true)
         }
         
@@ -92,15 +101,16 @@ const Header = () => {
                         <ul>
                             <nav style={{ textDecoration: "none" }} className={home ? "NavActive" : "NavNotActive"} onClick={()=>handleNav("/")}>Home</nav>
                             <nav style={{ textDecoration: "none" }} className={about ? "NavActive" : "NavNotActive"} onClick={()=>handleNav("/about")}>About</nav>
-                            <nav style={{ textDecoration: "none" }} className={contact ? "NavActive" : "NavNotActive"} onClick={()=>handleNav("/contact")}>Contact us</nav>
+                            <nav style={{ textDecoration: "none" }} className={contact ? "NavActive" : "NavNotActive"} onClick={()=>handleNav("/contact")}>Contact</nav>
                             <nav style={{ textDecoration: "none" }} className={team ? "NavActive" : "NavNotActive"} onClick={()=>handleNav("/team")} >Team</nav>
+                            <nav style={{ textDecoration: "none" }} className={therapist ? "NavActive" : "NavNotActive"} onClick={()=>Navigate("/therapist")} >Therapist</nav>
                         </ul>
                     </nav>
                     <div className="Auth">
                     {
                         isLoggedIn === true ? 
                         <>
-                            <div className="Account"> <MdManageAccounts size={24} /> My Account</div>
+                            <div className="Account"> <AiOutlineUser size={24} /> My Account</div>
                             <button onClick={logoutfuction} >Logout</button>
                         </>:
                         <>
