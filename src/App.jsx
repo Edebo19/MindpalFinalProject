@@ -41,6 +41,8 @@ import UserProfile from './components/UserProfile/UserProfile';
 
 
 const App = () => {
+
+  const [isLoggedIn, setIsLoggedIn] = useState(true)
   const router = createHashRouter([
     {
       path: "/therapist",
@@ -51,37 +53,14 @@ const App = () => {
           element: <TherapistDetails/>
         },
         {
-          path: "userProfile",
+          path: "user-profile",
           element: <UserProfile/>
         },
       ]
     },
     {
       path: "/",
-      element:<BFLayout/>,
-      children: [
-        {
-          path: "",
-          element: <Home/>
-        },
-        {
-          path: "about",
-          element: <About/>
-        },
-        {
-          path: "contact",
-          element: <Contact/>
-        },
-        {
-          path: "team",
-          element: <Team/>
-        },
-       
-      ]
-    },
-    {
-      path: "/loggedin",
-      element:<HoldAfterLogin/>,
+      element:<BFLayout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>,
       children: [
         {
           path: "",
@@ -100,16 +79,15 @@ const App = () => {
           element: <Team/>
         },
         {
-          path:"therapist",
+          path: "therapist",
           element: <Therapist/>
         },
-        
        
       ]
     },
     {
       path: "login",
-      element: <Login/>
+      element: <Login setIsLoggedIn={setIsLoggedIn}/>
     },
     {
       path: "signup",

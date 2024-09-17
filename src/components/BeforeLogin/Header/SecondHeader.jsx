@@ -7,11 +7,12 @@ import NavBar from '../../BeforeLogin/Header/NavBar'
 import { MdManageAccounts } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../Global/slice';
+import { BiNotification } from 'react-icons/bi';
+import { IoMdNotificationsOutline } from 'react-icons/io';
 
-const SecondHeader = () => {
+const SecondHeader = ({setIsLoggedIn}) => {
     const Navigate = useNavigate()
     const [mobile, setMobile] = useState(false)
-    const [isLoggedIn, setIsLoggedIn] = useState(true)
     const {pathname} = useLocation()
     // console.log(pathname)
 
@@ -85,11 +86,11 @@ const SecondHeader = () => {
     };
     const dispatch = useDispatch()
 
-
-    const logoutfuction = ()=>{
+    const logoutfuction =()=>{
         Navigate("/login")
-        dispatch(logout())
+        setIsLoggedIn(false)
     }
+    
     return (
         <div className='Header'>
             <div className="HeaderWrapper">
@@ -107,18 +108,10 @@ const SecondHeader = () => {
                         </ul>
                     </nav>
                     <div className="Auth">
-                    {
-                        isLoggedIn === true ? 
-                        <>
-                            <div className="Account"> <AiOutlineUser size={24} /> My Account</div>
-                            <button onClick={logoutfuction} >Logout</button>
-                        </>:
-                        <>
-                            <button onClick={()=> Navigate("/login")} >Login</button>
-                    <button onClick={()=> Navigate("/signup")}className='transparent'>Sign up</button>
-                        </>
-                    }
-                    
+                    <IoMdNotificationsOutline size={24}/>
+                    <div className="Account" onClick={()=>Navigate("/therapist/user-profile")}> <AiOutlineUser size={24} /> My Profile</div>
+                    <button onClick={logoutfuction} >Logout</button>
+                        
                 </div>
                 </div>
                 <div className="menu" onClick={() => setMobile(true)}>

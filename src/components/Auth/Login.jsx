@@ -10,7 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { BiLoaderCircle } from "react-icons/bi";
 
 
-const Login = () => {
+const Login = ({setIsLoggedIn}) => {
   // const nav = useNavigate()
   const dispatch = useDispatch()
 
@@ -72,7 +72,8 @@ const Login = () => {
       toast.success("Login successful!");
       setLoading(false);
       setTimeout(() => {
-        navigate("/loggedin");
+        navigate("/");
+        setIsLoggedIn(true)
       }, 3000); 
     } catch (error) {
       toast.error("An error occurred.");

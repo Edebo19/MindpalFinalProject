@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from '../BeforeLogin/Header/Header'
 import { Outlet } from 'react-router-dom'
+import SecondHeader from '../BeforeLogin/Header/SecondHeader'
 
 const TherapistLayout = () => {
+
+    const [isLoggedIn, setIsLoggedIn] = useState(true)
   return (
     <div>
-        <Header/>
+        {
+          isLoggedIn ? <SecondHeader/> : <Header/>
+        }
         <Outlet/>
     </div>
   )

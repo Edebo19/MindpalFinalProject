@@ -11,7 +11,6 @@ import { logout } from '../../Global/slice';
 const Header = () => {
     const Navigate = useNavigate()
     const [mobile, setMobile] = useState(false)
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
     const {pathname} = useLocation()
     // console.log(pathname)
 
@@ -86,10 +85,7 @@ const Header = () => {
     const dispatch = useDispatch()
 
 
-    const logoutfuction = ()=>{
-        Navigate("/login")
-        dispatch(logout())
-    }
+
     return (
         <div className='Header'>
             <div className="HeaderWrapper">
@@ -106,17 +102,8 @@ const Header = () => {
                         </ul>
                     </nav>
                     <div className="Auth">
-                    {
-                        isLoggedIn === true ? 
-                        <>
-                            <div className="Account"> <AiOutlineUser size={24} /> My Account</div>
-                            <button onClick={logoutfuction} >Logout</button>
-                        </>:
-                        <>
-                            <button onClick={()=> Navigate("/login")} >Login</button>
+                    <button onClick={()=> Navigate("/login")} >Login</button>
                     <button onClick={()=> Navigate("/signup")}className='transparent'>Sign up</button>
-                        </>
-                    }
                     
                 </div>
                 </div>

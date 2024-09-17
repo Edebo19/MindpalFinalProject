@@ -73,10 +73,10 @@
 }
 .Auth{
     height: 100%;
-    width: 30%;
+    width: max-content;
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 10px;
     justify-content: flex-end;
     align-items: center;
     /* background: red; */
@@ -91,11 +91,13 @@
         color: white;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-size: 17px;
-        /* border-bottom: 1px solid #222222; */
         color: black;
-        /* background: yellow; */
-        /* border-radius:9px ; */
+        transition:  all 350ms ease-in-out;
         cursor: pointer;
+    }
+    & .Account:hover{
+        transition:  all 350ms ease-in-out;
+        border-bottom: 2px solid #222222;
     }
 
     & button{
