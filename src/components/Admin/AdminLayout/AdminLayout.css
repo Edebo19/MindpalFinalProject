@@ -1,0 +1,9 @@
+.AdminLayout{
+    height: max-content;
+    width: 100%;
+    background: rgb(176, 228, 221);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}

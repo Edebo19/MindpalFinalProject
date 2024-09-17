@@ -1,0 +1,131 @@
+.UserProfile{
+    height: 120vh;
+    width: 100%;
+    background: #1aa36c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.UserProfileCard{
+    height: 97%;
+    width: 50%;
+    background: rgb(234, 227, 227);
+    border-radius: 18px;
+}
+.UserProfileTop{
+    height: 22%;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    background: #B0E4DD;
+}
+.HoldCircle{
+    height: 22%;
+    width: 100%;
+    display: flex;
+    /* background: red; */
+    justify-content: center;
+    align-items: center;
+    margin-top: -60px;
+    padding-left: 30px;
+}
+.ProfileCircle{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background: rgba(165, 159, 159, 0.669);
+    border: 3px solid white;
+}
+.Cameradiv{
+    height: 100%;
+    width: 5%;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 40px;
+    margin-left: -20px;
+
+    .round{
+        height: 30px;
+        width: 30px;
+        background: #81aea8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+}
+.HoldName{
+    height: 11%;
+    width: 100%;
+    /* background: rgb(182, 132, 132); */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+form{
+    height: max-content;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+    padding-left: 45px;
+    padding-right: 45px;
+
+    .HoldInputs{
+        height: 45vh;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .inputHolderr{
+        height: 31%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        & p{
+            font-family: var(--generalFontFamily--);
+            font-size: 18px;
+        }
+
+        & input{
+            height: 60%;
+            width: 100%;
+            border: 1px solid #418ea3;
+            background: transparent;
+            border-radius: 10px;
+            outline: 1px solid #418ea3;
+            font-family: var(--generalFontFamily--);
+            font-size: 16px;
+            padding-left: 10px;
+        }
+    }
+    .formButton{
+        height: 10vh;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+
+        button{
+            height: 75%;
+            width: max-content;
+            padding-left: 10px;
+            padding-right: 10px;
+            border: none;
+            background: rgb(198, 195, 195);
+            border-radius: 8px;
+            font-family: var(--generalFontFamily--);
+            font-size: 16px;
+            transition: all 400ms ease;
+        }
+        button:hover{
+            background: green;
+            color: white;
+            cursor: pointer;
+            transition: all 400ms ease;
+        }
+    }
+}

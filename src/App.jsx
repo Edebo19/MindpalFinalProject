@@ -27,6 +27,13 @@ import TherapistSubscription from './components/TherapistDashboard/DashboardPage
 import Therapist from './components/BeforeLogin/Home/Therapist';
 import HoldAfterLogin from './components/BeforeLogin/HoldAfterLogin';
 import TherapistLogin from './components/Auth/TherapistLogin';
+import AdminLayout from './components/Admin/AdminLayout/AdminLayout';
+import AdminDashboard from './components/Admin/AdminDashboard/AdminJsxFiles/AdminDashboard';
+import AdminHome from './components/Admin/AdminDashboard/AdminJsxFiles/AdminHome';
+import AllUsers from './components/Admin/AdminDashboard/AdminJsxFiles/AllUsers';
+import PastAppointments from './components/Admin/AdminDashboard/AdminJsxFiles/PastAppointments';
+import NewAppointments from './components/Admin/AdminDashboard/AdminJsxFiles/NewAppointments';
+import UserProfile from './components/UserProfile/UserProfile';
 
 // https://blog.logrocket.com/using-react-toastify-style-toast-messages/
 
@@ -42,7 +49,11 @@ const App = () => {
         {
           path:"therapist-details",
           element: <TherapistDetails/>
-        }
+        },
+        {
+          path: "userProfile",
+          element: <UserProfile/>
+        },
       ]
     },
     {
@@ -65,10 +76,7 @@ const App = () => {
           path: "team",
           element: <Team/>
         },
-        {
-          path:"therapist",
-          element: <Therapist/>
-        }
+       
       ]
     },
     {
@@ -94,7 +102,9 @@ const App = () => {
         {
           path:"therapist",
           element: <Therapist/>
-        }
+        },
+        
+       
       ]
     },
     {
@@ -152,6 +162,34 @@ const App = () => {
             {
               path:"subscription",
               element: <TherapistSubscription/>
+            }
+          ]
+        }
+      ]
+    },
+    {
+      path: "admin",
+      element: <AdminLayout/>,
+      children: [
+        {
+          path: "admin-dashboard",
+          element: <AdminDashboard/>,
+          children:[
+            {
+              path: "home",
+              element: <AdminHome/>
+            },
+            {
+              path: "past-appointments",
+              element: <PastAppointments/>
+            },
+            {
+              path: "upcoming-appointments",
+              element: <NewAppointments/>
+            },
+            {
+              path: "all-patients",
+              element: <AllUsers/>
             }
           ]
         }

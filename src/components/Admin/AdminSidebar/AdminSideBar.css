@@ -1,0 +1,152 @@
+.AdminSidebar{
+    height: 100vh;
+    width: 25%;
+    background: white;
+}
+.SidebarHeader{
+    height: 16%;
+    width: 100%;
+    /* background: #000; */
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 30px;
+    align-items: center;
+    justify-content: center;
+}
+.SideBarLogoBox{
+    height: 100%;
+    width: 30%;
+    /* background: pink;     */
+
+    & img{
+        height: 100%;
+        width: 100%;
+    }
+}
+.AdminSidebarNav{
+    height: 84%;
+    width: 100%;
+    /* background: rebeccapurple;  */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;     
+}
+nav{
+    height: 80%;
+    width: 100%;
+    /* background: #877474; */
+
+    & ul{
+        height: 70%;
+        width: 100%;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        padding-left: 30px;
+
+        & .NavNotActive{
+            list-style: none;
+            font-size: 19px;
+            font-family: var(--generalFontFamily--);
+            /* background: bisque; */
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 5px;
+            transform: scale(1);
+            color: black;
+            text-decoration: none;
+            transition: all 350ms ease;
+        }
+        .NavActive{
+            list-style: none;
+            font-size: 19px;
+            font-family: var(--generalFontFamily--);
+            /* background: bisque; */
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 5px;
+            transform: scale(1.01);
+            color: black;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 350ms ease;
+        }
+        & .NavNotActive:hover{
+            cursor: pointer;
+            transform: scale(1.01);
+            transition: all 350ms ease;
+        }
+        .AppointmentHolder{
+            height: 30%;
+            width: 75%;
+            background: #B0E4DD;
+            display: flex;
+            flex-direction: column;
+            margin-top: -20px;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+
+            hr{
+                height: 2px;
+                width: 95%;
+                background: black;
+                border: none;
+            }
+            & p{
+                font-family: var(--generalFontFamily--);
+                font-size: 18px;
+                color: rgb(53, 51, 51);
+            }
+
+            & p:hover{
+                cursor: pointer;
+                color: black;
+            }
+        }
+    }
+}
+footer{
+    height: 12%;
+    width: 100%;
+    /* background: wheat; */
+    display: flex;
+    align-items: center;
+
+    & ul{
+        height: 70%;
+        width: 100%;
+        /* background: blue; */
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 25px;
+        padding-left: 30px;
+
+        & li{
+            list-style: none;
+            font-size: 19px;
+            font-family: var(--generalFontFamily--);
+            border: 1px solid red;
+            width: max-content;
+            padding: 9px;
+            padding-left: 10px;
+            padding-right: 10px;
+            border-radius: 8px;
+            color: red;
+            cursor: pointer;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 5px;
+        }
+    }
+}
+@media screen and (max-width:768px) {
+    .SideBar{
+        display: none;
+    }
+}

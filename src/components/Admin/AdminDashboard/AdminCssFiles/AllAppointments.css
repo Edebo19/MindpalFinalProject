@@ -1,0 +1,51 @@
+.PastAppointments{
+    height: 96vh;
+    width: 100%;
+    padding-right: 10px;
+    margin-top: 10px;
+    background: white;
+    border-radius: 8px;
+    padding-left: 5px;
+
+}
+.PastAppointmentHeader{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 5px;
+
+    & h2{
+        font-family: var(--generalFontFamily--);
+        font-size: 26px;
+    }
+}
+.HoldPastAppoinmentsTable{
+    height: 88%;
+    width: 100%;
+    overflow: auto;
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 20px;
+        text-align: center;
+        font-family: var(--generalFontFamily--);
+      }
+      
+      th, td {
+        border: 1px solid #000;
+        padding: 8px;
+      }
+      
+      th {
+        background-color: #D9F2EF;
+        position: sticky;
+        top: 0;
+        z-index: 9999;
+      }
+      
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+}

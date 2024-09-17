@@ -79,7 +79,7 @@ const TherapistHome = () => {
                   <td><p>13/09/2024</p></td>
                   <td><p>17:05</p></td>
                   <td><p>Virtual</p></td>
-    </tr>
+              </tr>
               </tbody>
             </table>
           </div>
