@@ -61,13 +61,30 @@ const HoldGif = styled.img`
 const WaitingForVerificationPage = () => {
   const { token } = useParams();
   const [loading, setLoading] = useState(true);
-  const [message, setMessage] = useState('');
   const navigate = useNavigate()
 
   useEffect(()=>{
         axios.get(`https://mind-pal-8a5l.onrender.com/api/v1/user/verify/${token}`)
         .then((res)=>{
           console.log(res)
+          if(res.status === 200){
+            Swal.fire({
+              title: 'Hi there! 😊👋',
+              text: `${res.data.message}`,
+              icon: 'success',
+              customClass: {
+                popup: 'my-popup-class',          // Custom class for the popup
+                title: 'my-title-class',          // Custom class for the title
+                content: 'my-content-class',      // Custom class for the content
+                confirmButton: 'my-confirm-class', // Custom class for the confirm button
+                cancelButton: 'my-cancel-class'   // Custom class for the cancel button
+              },
+            }).then((result) => {
+              if (result.isConfirmed) {
+                nav(`/login`);
+              }
+            });
+          }
         })
         .catch((error)=>{
           setLoading(false)
