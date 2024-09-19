@@ -23,7 +23,6 @@ const ResetPassword = () => {
                 <div className="MainResetFormInputAndButton">
                     <div className="HoldInput">
                     <input type="password" placeholder='New password' />
-                    <input type="password" placeholder='Confirm password' />
                     </div>
                     <div className="HoldButton">
                     <button>Change password</button>

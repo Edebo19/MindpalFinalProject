@@ -10,11 +10,11 @@ import { logout } from '../../Global/slice';
 import { BiNotification } from 'react-icons/bi';
 import { IoMdNotificationsOutline } from 'react-icons/io';
 
-const SecondHeader = ({setIsLoggedIn}) => {
+const SecondHeader = () => {
     const Navigate = useNavigate()
     const [mobile, setMobile] = useState(false)
     const {pathname} = useLocation()
-    // console.log(pathname)
+
 
     const [isactive, setIsactive] = useState(false)
     const [home, setHome] = useState(false)
@@ -22,6 +22,12 @@ const SecondHeader = ({setIsLoggedIn}) => {
     const [contact, setContact] = useState(false)
     const [therapist, setTherapist] = useState(false)
     const [team, setTeam] = useState(false)
+    const scrollToTop = () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      };
     useEffect(()=>{
         if (pathname === "/"){
             setAbout(false)
@@ -56,6 +62,7 @@ const SecondHeader = ({setIsLoggedIn}) => {
         
     },[pathname])
     const handleNav = (val)=>{
+        scrollToTop()
         if (val=="/"){
             Navigate("/")
             setIsactive(true)
@@ -85,11 +92,9 @@ const SecondHeader = ({setIsLoggedIn}) => {
         }, 100);
     };
     const dispatch = useDispatch()
-
-    const logoutfuction =()=>{
-        Navigate("/login")
-        setIsLoggedIn(false)
-    }
+const logoutFunction =()=>{
+    dispatch(logout())
+}
     
     return (
         <div className='Header'>
@@ -110,7 +115,7 @@ const SecondHeader = ({setIsLoggedIn}) => {
                     <div className="Auth">
                     <IoMdNotificationsOutline size={24}/>
                     <div className="Account" onClick={()=>Navigate("/therapist/user-profile")}> <AiOutlineUser size={24} /> My Profile</div>
-                    <button onClick={logoutfuction} >Logout</button>
+                    <button onClick={logoutFunction } >Logout</button>
                         
                 </div>
                 </div>

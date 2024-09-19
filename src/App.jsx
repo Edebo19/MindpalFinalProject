@@ -34,6 +34,7 @@ import AllUsers from './components/Admin/AdminDashboard/AdminJsxFiles/AllUsers';
 import PastAppointments from './components/Admin/AdminDashboard/AdminJsxFiles/PastAppointments';
 import NewAppointments from './components/Admin/AdminDashboard/AdminJsxFiles/NewAppointments';
 import UserProfile from './components/UserProfile/UserProfile';
+import WaitingForVerificationPage from './components/Auth/WaitingForVerificationPage';
 
 // https://blog.logrocket.com/using-react-toastify-style-toast-messages/
 
@@ -42,7 +43,7 @@ import UserProfile from './components/UserProfile/UserProfile';
 
 const App = () => {
 
-  const [isLoggedIn, setIsLoggedIn] = useState(true)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
   const router = createHashRouter([
     {
       path: "/therapist",
@@ -60,7 +61,7 @@ const App = () => {
     },
     {
       path: "/",
-      element:<BFLayout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>,
+      element:<BFLayout/>,
       children: [
         {
           path: "",
@@ -87,11 +88,15 @@ const App = () => {
     },
     {
       path: "login",
-      element: <Login setIsLoggedIn={setIsLoggedIn}/>
+      element: <Login/>
     },
     {
       path: "signup",
       element: <Signup/>
+    },
+    {
+      path: "waitingforverification",
+      element: <WaitingForVerificationPage/>
     },
     {
       path: "therapistlogin",
@@ -102,7 +107,7 @@ const App = () => {
       element: <ForgotPassword/>
     },
     {
-      path: "change-password",
+      path: "sent-email",
       element: <ChangePassword/>
     },
     {

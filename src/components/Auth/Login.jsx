@@ -4,13 +4,15 @@ import loginlogo from "../../assets/loginlogo.png"
 import { IoEye, IoEyeOff } from "react-icons/io5";
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { login } from '../Global/slice';
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { BiLoaderCircle } from "react-icons/bi";
+import axios from 'axios';
+import Swal from 'sweetalert2';
+import { login } from '../Global/slice';
 
 
-const Login = ({setIsLoggedIn}) => {
+const Login = () => {
   // const nav = useNavigate()
   const dispatch = useDispatch()
 
@@ -44,7 +46,8 @@ const Login = ({setIsLoggedIn}) => {
     }
   };
 
-  // Form validation function
+
+  
   const validateForm = () => {
     const { email, password } = formData;
     if (!email || !password) {
@@ -54,44 +57,49 @@ const Login = ({setIsLoggedIn}) => {
     return true;
   };
 
-  // Handle form submission
+
+
   const handleSubmit = async () => {
+    setLoading(true)
     if (!validateForm()) return;
 
     const formDataObj = new FormData();
     formDataObj.append("email", formData.email);
     formDataObj.append("password", formData.password);
-  
-    try {
-      setLoading(true);
-      // const response = await axios.post("", formDataObj, {
-      //   headers: {
-      //     "Content-Type": "multipart/form-data"
-      //   }
-      // });
-      toast.success("Login successful!");
-      setLoading(false);
-      setTimeout(() => {
-        navigate("/");
-        setIsLoggedIn(true)
-      }, 3000); 
-    } catch (error) {
-      toast.error("An error occurred.");
-      setLoading(false);
-    } finally {
-      setLoading(false);
-    }
+    dispatch(login())
+    const url = "https://mind-pal-8a5l.onrender.com/api/v1"
+    const LoginUrl = `${url}/user/log-in`
+    axios.post(LoginUrl, formData)
+    .then((res)=>{
+      console.log(res)
+      setLoading(false)
+      
+      Swal.fire({
+        title: "Welcome!",
+        text: "Login Successful!",
+        icon: "success"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/");
+        }
+      });
+    })
+    .catch((error)=>{
+      setLoading(false)
+
+      console.log(error)
+      toast.error("incorrrect email or password")
+    })
   };
 
 
 
   return (
     <>
-     <ToastContainer />
       <div className="login">
       
         <div className="loginLogoBox">
-          <div className="loginLogo"> <img src={loginlogo} alt="" srcset="" /> </div>
+          <div className="loginLogo"> <img src={loginlogo} alt="" /> </div>
           <h4>Login</h4>
         </div>
         <div className="loginInformation">
@@ -113,7 +121,7 @@ const Login = ({setIsLoggedIn}) => {
             </div>
            
           </div>
-          <p className="centerWriteUp">Forgot Password?</p>
+          <p className="centerWriteUp" onClick={()=> navigate("/forgot-password")}>Forgot Password?</p>
           <button onClick={handleSubmit}> {loading ? <BiLoaderCircle className="mr-2 animate-spin" size={22} /> : "Login"}</button>
           <span className="bottomWriteUp">
             <p className="bottomWriteUp1">Don't have an account?</p>
@@ -122,7 +130,7 @@ const Login = ({setIsLoggedIn}) => {
         </div>
 
       </div>
-      <ToastContainer />
+      <ToastContainer/>
     </>
   )
 }

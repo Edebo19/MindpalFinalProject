@@ -1,7 +1,10 @@
 import React from 'react'
 import authlogo from '../../assets/mainmain.png'
+import './ForgotPassword.css'
+import { useNavigate } from 'react-router-dom'
 
 const ChangePassword = () => {
+    const navigate = useNavigate()
     return (
         <div className='ForgotPasswordHolder'>
             <div className="AuthSide">
@@ -14,11 +17,11 @@ const ChangePassword = () => {
             </div>
             <div className="FormArea">
                 <div className="AlreadyForgot">
-                    <p>Already have an account? <span>Login</span></p>
+                    <p>Already have an account? <span onClick={()=>navigate("/login")}>Login</span></p>
                 </div>
                 <div className="MainForgotForm">
-                    <div className="MainForgotFormText">
-                        <h2>Check your inbox</h2>
+                    <div className="MainForgotFormTextSuccess">
+                        <h2>Please check your inbox</h2>
                         <p> We sent an email with password reset instructions.</p>
                     </div>
                 </div>

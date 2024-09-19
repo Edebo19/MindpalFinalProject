@@ -31,7 +31,27 @@
     height: 100%;
     object-fit: cover;
 }
+.my-title-class {
+    font-size: 20px;
 
+    @media (max-width: 600px) {
+      font-size: 18px;
+    }
+  }
+  .my-content-class {
+      font-size: 18px;
+  
+      @media (max-width: 600px) {
+        font-size: 16px;
+      }
+    }
+    .my-cancel-class {
+        background: green;
+  
+  
+    }
+  
+  
 .signupInformation{
     width: 70%;
     height: 100%;

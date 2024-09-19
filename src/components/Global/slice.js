@@ -7,15 +7,21 @@ const initialState = {
 export const appSlice = createSlice({
     name:"Mindpal",
     initialState,
-    reducers:{
-        login:(state)=>{
-            state.isLoggedIn === true
+    reducers: {
+        login: (state) => {
+          state.isLoggedIn = true;
+          localStorage.setItem('isLoggedIn', 'true');
         },
         logout: (state) => {
-            state.isLoggedIn = false; 
-        }
-    }
+          state.isLoggedIn = false;
+          localStorage.removeItem('isLoggedIn'); 
+        },
+        checkLogin: (state) => {
+          const loggedInStatus = localStorage.getItem('isLoggedIn');
+          state.isLoggedIn = loggedInStatus ==='true';
+        },
+      },
     
 })
-export const {login, logout} = appSlice.actions
+export const {login, logout, checkLogin} = appSlice.actions
 export default appSlice.reducer

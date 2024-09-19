@@ -101,6 +101,10 @@
         font-weight: bold;
         color: #3FB480;
     }
+    & .centerWriteUp:hover{
+        text-decoration: underline;
+        cursor: pointer;
+    }
 
     & button{
         width:130px;
