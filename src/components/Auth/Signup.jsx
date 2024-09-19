@@ -110,7 +110,7 @@ const Signup = () => {
       .catch((error)=>{
         setLoading(false)
         console.log(error)
-        toast.success("Sign up unsuccessful")
+        toast.error("Sign up unsuccessful!")
       })
 
     }
