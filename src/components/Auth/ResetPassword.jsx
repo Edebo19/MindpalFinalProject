@@ -1,8 +1,56 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './ResetPassword.css'
 import authlogo from '../../assets/mainmain.png'
+import { useParams } from 'react-router-dom'
+import axios from 'axios'
 
 const ResetPassword = () => {
+    const [newPassword, setNewPassword] = useState("")
+    const token = useParams()
+    const [passwordErrorMsg, setPasswordErrorMsg] = useState("")
+    const [passwordError, setPasswordError] = useState(false)
+
+
+    const validatePassword = (newData) => {
+        let errorMessage = '';
+    
+        if (newData.length < 8) {
+          errorMessage += 'Password must be at least 8 characters long. ';
+        }
+        if (!containsUppercase(newData)) {
+          errorMessage += 'Password must contain at least one uppercase letter. ';
+        }
+        if (!containsSymbol(newData)) {
+          errorMessage += 'Password must contain at least one special character. ';
+        }
+    
+        if (errorMessage) {
+          setPasswordError(true);
+          setPasswordErrorMsg(errorMessage.trim());
+        } else {
+          setPasswordError(false);
+          setPasswordErrorMsg('');
+        }
+      };
+    
+      const handlePassword = (e) => {
+        const newPassword = e.target.value;
+        setpassword(newPassword);
+        validatePassword(newPassword);
+      };
+
+      const resetFunction = ()=>{
+        const url = "https://mind-pal-8a5l.onrender.com/api/v1"
+        const resetUrl = `${url}/user/reset-password/${token}`
+        axios.post(resetUrl, {newPassword})
+        .then((res)=>{
+            console.log(res)
+        })
+        .catch((error)=>{
+            console.log(error)
+        })
+      }
+
   return (
     <div className='ForgotPasswordHolder'>
         <div className="AuthSide">
@@ -20,14 +68,19 @@ const ResetPassword = () => {
                 <div className="MainForgotFormText">
                     <p>Enter your new password</p>
                 </div>
-                <div className="MainResetFormInputAndButton">
+                <form onSubmit={resetFunction} className="MainResetFormInputAndButton">
                     <div className="HoldInput">
-                    <input type="password" placeholder='New password' />
+                    <input type="password" onChange={handlePassword} placeholder='New password' />
+                    <>
+                    {
+                        passwordError ? <p style={{color:"red", paddingInline:"5px", fontFamily:"inherit"}}>{passwordErrorMsg}</p>: null
+                    }
+                    </>
                     </div>
                     <div className="HoldButton">
-                    <button>Change password</button>
+                    <button type='submit'>Change password</button>
                     </div>
-                </div>
+                </form>
 
             </div>
         </div>

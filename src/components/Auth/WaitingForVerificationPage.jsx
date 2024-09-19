@@ -59,19 +59,10 @@ const WaitingForVerificationPage = () => {
         axios.get(`https://mind-pal-8a5l.onrender.com/api/v1/user/verify/${token}`)
         .then((res)=>{
           console.log(res)
-          setLoading(false)
-          setMessage("You are now verified and can now access Mindpal")
-          toast.success(res.data.message)
-
-          // setTimeout(()=>{
-          //   navigate("/login")
-          // }, 3000)
         })
         .catch((error)=>{
           setLoading(false)
           console.log(error)
-          setMessage("Verification Unsuccessful.")
-          toast.error('Verification failed.');
         })
         .finally(()=>{
           setLoading(false)
@@ -80,13 +71,8 @@ const WaitingForVerificationPage = () => {
   return (
     <Container>
       <VerificationMessage>
-       {
-        loading ? "Account under verification, please wait..." : <p>{message}</p>
-       }
+        Account not verified. Please check your mail and verify your account.
         </VerificationMessage>
-      {
-        loading ? <LoadingAnimation/> : null
-      }
     </Container>
   );
 };
