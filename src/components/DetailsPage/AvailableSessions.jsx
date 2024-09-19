@@ -1,7 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './AvailableSessions.css'
+import { useParams } from 'react-router-dom'
 
 const AvailableSessions = () => {
+    const [time, setTime]= useState("")
+    const [date, setDate]= useState("")
+    const check = new Date().getHours().toLocaleString()
+    // const time = new Date().toTimeString()
+    console.log(time)
+
+    const SendDate =(e)=>{
+        setDate(e.target.value)
+    }
+    const SendTime =(e)=>{
+        setTime(e.target.value)
+    }
+    console.log(time)
   return (
     <div className='AvailableSessions'>
         <div className="AvailableSide">
@@ -10,35 +24,19 @@ const AvailableSessions = () => {
                 <p>Book 1:1 sessions from the options</p>
             </div>
             <div className="AvailableSideMain">
-                <div className="ScheduledDate">
-                    <div className="ScheduledDateUp">
-                        <h5>Monday</h5>
-                        <p>October 11</p>
-                    </div>
-                    <div className="ScheduledDateDown">
-                        <button>9AM</button>
-                        <button>11:45AM</button>
-                    </div>
+                <div className="HoldSelectedAppointmentTherapist">
+                    <p style={{fontWeight:"600", fontSize:"18px"}}>Selected Therapist:</p>
+                <div className='TherapistNameAppointment'>
+                    <p>Dr Nneoma Okafor</p>
                 </div>
-                <div className="ScheduledDate">
-                    <div className="ScheduledDateUp">
-                        <h5>Wednesday</h5>
-                        <p>October 13</p>
-                    </div>
-                    <div className="ScheduledDateDown">
-                        <button>10AM</button>
-                        <button>12PM</button>
-                    </div>
                 </div>
-                <div className="ScheduledDate">
-                    <div className="ScheduledDateUp">
-                        <h5>Friday</h5>
-                        <p>October 15</p>
-                    </div>
-                    <div className="ScheduledDateDown">
-                        <button>9AM</button>
-                        <button>12PM</button>
-                    </div>
+                <div className="HoldAppointmentDate">
+                    <p>Pick Convenient Date:</p>
+                    <input type="date" value={date} onChange={SendDate} />
+                </div>
+                <div className="HoldAppointmentsTime">
+                    <p>Pick Convenient Time:</p>
+                    <input type="time" value={time} onChange={SendTime}  />
                 </div>
             </div>
         </div>

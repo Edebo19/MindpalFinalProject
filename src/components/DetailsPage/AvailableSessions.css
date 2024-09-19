@@ -7,27 +7,26 @@
     padding-left: 30px;
     padding-right: 30px;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 }
 .AvailableSide{
-    height: 100%;
-    width: 76%;
-    /* background: palegreen; */
+    height: 90%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 .Continue{
-    height: 100%;
-    width: 22%;
-    /* background: powderblue; */
+    height: 15%;
+    width: 100%;
     display: flex;
     align-items: flex-end;
-    justify-content: center;
+    justify-content: flex-end;
 
     & button{
-        height: 31px;
-        width: 98%;
+        height: 37px;
+        width: 22%;
         border: none;
         color: white;
         border-radius: 8px;
@@ -53,61 +52,67 @@
     }
 }
 .AvailableSideMain{
-    height: 62%;
+    height: 1000%;
     width: 100%;
     border: 2px solid #B0E4DD;
     border-radius: 8px;
     padding: 10px;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 }
-.ScheduledDate{
-    height: 100%;
-    width: 30%;
+.HoldSelectedAppointmentTherapist{
+    height:30%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.TherapistNameAppointment{
+    height: 65%;
+    padding-left: 5px;
+    font-family: var(--generalFontFamily--);
+    font-size: 15px;
+    width: 100%;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 6px;
+}
+.HoldAppointmentDate{
+    height: 30%;
     /* background: red; */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 3px;
 
-}
-.ScheduledDateUp{
-    height: 37%;
-    width: 100%;
-    /* background: #654a4a; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    & h5{
+    & input{
+        height: 65%;
+        padding-left: 5px;
         font-family: var(--generalFontFamily--);
-        font-size: 18px;
-
-    }
-    & p{
-        font-family: var(--generalFontFamily--);
-        font-size: 16px;
+        font-size: 15px;
+        width: 100%;
+        background: transparent;
+        outline: none;
+        border: 1px solid black;
+        border-radius: 6px;
     }
 }
-.ScheduledDateDown{
-    height: 55%;
-    width: 100%;
-    /* background: #3FB480; */
+.HoldAppointmentsTime{
+    height: 30%;
+    /* background: red; */
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 10px;
-
-    & button{
-        height: 39px;
-        width: 90%;
-        border-radius: 8px;
-        background-color: transparent;
-        border: 1px solid #B0E4DD;
+    gap: 3px;
+    & input{
+        height: 65%;
+        padding-left: 5px;
         font-family: var(--generalFontFamily--);
-        font-size: 17px;
-        font-weight: 500;
-    }
-    & button:hover{
-        cursor: pointer;
+        font-size: 15px;
+        width: 100%;
+        background: transparent;
+        outline: none;
+        border: 1px solid black;
+        border-radius: 6px;
     }
 }

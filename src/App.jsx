@@ -43,7 +43,6 @@ import WaitingForVerificationPage from './components/Auth/WaitingForVerification
 
 const App = () => {
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
   const router = createHashRouter([
     {
       path: "/therapist",
@@ -95,7 +94,7 @@ const App = () => {
       element: <Signup/>
     },
     {
-      path: "waitingforverification",
+      path: "waitingforverification/:token",
       element: <WaitingForVerificationPage/>
     },
     {
@@ -111,7 +110,7 @@ const App = () => {
       element: <ChangePassword/>
     },
     {
-      path: "reset-password",
+      path: "reset-password/:token",
       element: <ResetPassword/>
     },
     {

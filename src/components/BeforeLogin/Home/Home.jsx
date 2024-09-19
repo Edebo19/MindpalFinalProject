@@ -14,9 +14,11 @@ import Aos from 'aos'
 import "aos/dist/aos.css"
 import { useNavigate } from 'react-router-dom'
 import heroImage from '../../../assets/heroWoman.jpg'
+import { useSelector } from 'react-redux'
 
 const Home = () => {
   const navigate = useNavigate()
+  const isLoggedIn = useSelector((state)=>state.Mindpal.isLoggedIn)
   useEffect(()=>{
     Aos.init();
   },[])
@@ -83,7 +85,12 @@ const Home = () => {
           <p>Discover a journey to mental well-being with expert guidance, supportive communities, and personalized resources</p>
          </div>
           <div className="HeroButton">
-          <button>Book a session</button>
+            {
+              isLoggedIn ?
+              <button onClick={()=> navigate("/login")}>Book a session</button>
+              :
+          <button onClick={()=> navigate("/about")}>Book a session</button>
+            }
           </div>
         </div>
           <div className="HeroImage">

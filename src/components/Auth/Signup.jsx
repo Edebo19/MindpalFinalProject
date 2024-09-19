@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import "./Signup.css"
 import loginlogo from "../../assets/loginlogo.png"
 import { IoEye } from "react-icons/io5";
-import { useNavigate } from 'react-router-dom';
+import { replace, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import { BiLoaderCircle } from 'react-icons/bi';
@@ -115,7 +115,10 @@ const Signup = () => {
 
     }
   }
-
+const goHome=()=>{
+  nav("/"),
+  {replace: true}
+}
 
 
   return (
@@ -123,7 +126,7 @@ const Signup = () => {
       <div className="signup">
       
         <div className="signupLogoBox">
-          <div className="signupLogo"> <img src={loginlogo} alt="" /> </div>
+          <div className="signupLogo"> <img src={loginlogo} alt="" style={{cursor:"pointer"}} onClick={goHome}/> </div>
           <h4>Create your account</h4>
         </div>
         <div className="signupInformation">

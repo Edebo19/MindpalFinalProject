@@ -3,22 +3,23 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import styled from 'styled-components';
+import gif from '../../assets/verifying.gif'
 
 const Container = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   height: 100vh;
   width: 100vw;
-  background-color: #c5c4c4;
+  background-color: #E4E4E4;
 `;
 
 const VerificationMessage = styled.h2`
-  font-size: 27px;
+  font-size: 36px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: bold;
-  color: #333;
+  color: #26ac72;
   margin-bottom: 20px;
 
   @media (max-width: 768px) {
@@ -47,6 +48,14 @@ const LoadingAnimation = styled.div`
     }
   }
 `;
+const HoldHold = styled.div`
+  height: 110px;
+  width: 110px;
+`
+const HoldGif = styled.img`
+  height: 100%;
+  width: 100%;
+`
 
 
 const WaitingForVerificationPage = () => {
@@ -71,8 +80,12 @@ const WaitingForVerificationPage = () => {
   return (
     <Container>
       <VerificationMessage>
-        Account not verified. Please check your mail and verify your account.
+        Verifying
         </VerificationMessage>
+        <HoldHold>
+          
+        <HoldGif src={gif} alt=""/>
+        </HoldHold>
     </Container>
   );
 };
