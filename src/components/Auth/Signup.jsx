@@ -103,7 +103,7 @@ const Signup = () => {
           },
         }).then((result) => {
           if (result.isConfirmed) {
-            nav(`/waitingforverification/${token}`);
+            nav(`/waitingforverification`);
           }
         });
       })
