@@ -15,9 +15,10 @@ const TherapistDetails = () => {
   const [total, setTotal] = useState(30000)
   // const item = therapist.find(item => item.id === parseInt(id));
   // console.log(item)
+  console.log(therapistinfo)
   let {bookedTherapistId} = useSelector((state)=>state)
     bookedTherapistId = id
-  console.log(bookedTherapistId)
+  // console.log(bookedTherapistId)
   const getOneTherapist =()=>{
     const url =`https://mind-pal-8a5l.onrender.com/api/v1/therapist/one/${id}`
     axios.get(url)

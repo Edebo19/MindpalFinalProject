@@ -7,10 +7,8 @@ import { AiOutlinePlusCircle } from "react-icons/ai";
 import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-// import axios from "axios";
+import axios from "axios";
 import { BiLoaderCircle } from "react-icons/bi";
-import axios from 'axios';
-import Swal from 'sweetalert2';
 
 const Thesignup = () => {
   const [formData, setFormData] = useState({
@@ -28,26 +26,6 @@ const Thesignup = () => {
 
   const [loading, setLoading] = useState(false);
   const [passwordVisible, setPasswordVisible] = useState(false); 
-  const [emailErrorMsg, setEmailErrorMsg] = useState("")
-  const [emailError, setEmailError] = useState(false)
-  const [passwordErrorMsg, setPasswordErrorMsg] = useState("")
-  const [passwordError, setPasswordError] = useState(false)
-  const validateEmail = (input) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(input);
-  };
-  const containsUppercase = (input) => {
-    return /[A-Z]/.test(input);
-    };
-    const containsSymbol = (input) => {
-      return /[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/.test(input);
-    };
-
-  const handleEmail=(e)=>{
-
-    
-
-  }
   const navigate = useNavigate();
 
   const idCardInputRef = useRef(null);
@@ -63,19 +41,7 @@ const Thesignup = () => {
       } else {
         toast.error("You can only upload up to 3 files.");
       }
-    }else if(name === "email"){
-      setFormData({...formData, value})
-    if(formData.email.trim() === '') {
-        toast.error('Email is required');
-    }else if (!validateEmail(formData.email)) {
-      setEmailError(true)
-      setEmailErrorMsg('Invalid email format');
     } else {
-      setEmailErrorMsg(null)
-      setEmailError(false)
-    }
-    }
-     else {
       setFormData({ ...formData, [name]: e.target.value });
     }
   };
@@ -92,7 +58,7 @@ const Thesignup = () => {
     }
   };
 
-
+  // Form validation function
   const validateForm = () => {
     const { firstName, lastName, specialty, experience, education, idCard, certificate, phone, email, password } = formData;
     if (!firstName || !lastName || !specialty || !experience || !education || !phone || !email || !password || !idCard || !certificate.length) {
@@ -102,77 +68,46 @@ const Thesignup = () => {
     return true;
   };
 
-
+  // Handle form submission
   const handleSubmit = async () => {
-    setLoading(true)
+    console.log('hello');
+    
     if (!validateForm()) return;
 
     const formDataObj = new FormData();
-    formDataObj.append("firstName", formData.firstName);
+  
+    formDataObj.append("firstNamegit ", formData.firstName);
     formDataObj.append("lastName", formData.lastName);
     formDataObj.append("specialty", formData.specialty);
-    formDataObj.append("experience", formData.experience);
-    formDataObj.append("education", formData.education);
-    formDataObj.append("phone", formData.phone);
+    formDataObj.append("fieldExperience", formData.experience);
+    formDataObj.append("educationalLevel", formData.education);
+    formDataObj.append("phoneNumber", formData.phone);
     formDataObj.append("email", formData.email);
     formDataObj.append("password", formData.password);
     formDataObj.append("idCard", formData.idCard);
 
     formData.certificate.forEach(file => formDataObj.append("certificate", file));
 
-    const url =" https://mind-pal-8a5l.onrender.com/api/v1/therapist/sign-up"
-    axios.post(url, formData)
-    .then((res)=>{
-      console.log(res)
-      setLoading(false)
+    try {
+      setLoading(true);
+      const response = await axios.post("https://mind-pal-8a5l.onrender.com/api/v1/therapist/sign-up", formDataObj, {
+        headers: {
+          "Content-Type": "multipart/form-data"
+        }
+      });
+      toast.success(response.data);
+      // setTimeout(() => {
+      //   navigate("/therapistlogin");
+      // }, 3000); 
+    } catch (error) {
+      console.log(error);
       
-    })
-    .catch((error)=>{
-      console.log(error)
-      setLoading(false)
-    })
-
-  }
-  const SignUpFunction =()=>{
-    setLoading(true)
-    if (!email || !password || !firstName || !lastName) {
-      toast.error("Please fill all fields")
-    } else if (emailError || passwordError) {
-      toast.error("Please correct the errors before submitting");
-    } else {
-      const data = {firstName, lastName, email, password}
-      const url = " https://mind-pal-8a5l.onrender.com/api/v1"
-      const signUpUrl = `${url}/user/sign-up`
-      console.log(data)
-      axios.post(signUpUrl, data)
-      .then((res)=>{
-        console.log(res)
-        setLoading(false)
-        Swal.fire({
-          title: 'Hi there! 😊👋',
-          text: `${res.data.message}`,
-          icon: 'success',
-          customClass: {
-            popup: 'my-popup-class',          // Custom class for the popup
-            title: 'my-title-class',          // Custom class for the title
-            content: 'my-content-class',      // Custom class for the content
-            confirmButton: 'my-confirm-class', // Custom class for the confirm button
-            cancelButton: 'my-cancel-class'   // Custom class for the cancel button
-          },
-        }).then((result) => {
-          if (result.isConfirmed) {
-            nav(`/therapistlogin`);
-          }
-        });
-      })
-      .catch((error)=>{
-        setLoading(false)
-        console.log(error)
-        toast.error("Sign up unsuccessful!")
-      })
-
+      toast.error(error.response);
+      setLoading(false);
+    } finally {
+      setLoading(false);
     }
-  }
+  };
 
   return (
     <>

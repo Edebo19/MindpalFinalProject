@@ -82,7 +82,7 @@ const Login = () => {
       setLoading(false)
 
       console.log(error)
-      toast.error("incorrrect email or password")
+      toast.error("Error Logging in")
     })
   };
 

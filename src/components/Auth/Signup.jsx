@@ -174,7 +174,7 @@ const goHome=()=>{
           </div>
           <span className="signupWrtiteup">
             <h1 className="signupP" style={{fontWeight:"bold"}}>Already have an account?</h1>
-            <p className="loginfromsignup" onClick={()=>nav("/therapistlogin")} style={{color:"#3FB480", fontWeight:"bold"}} >Login</p>
+            <p className="loginfromsignup" onClick={()=>nav("/login")} style={{color:"#3FB480", fontWeight:"bold"}} >Login</p>
           </span>
         </div>
 

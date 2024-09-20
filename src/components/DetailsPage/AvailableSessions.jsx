@@ -28,56 +28,60 @@ const AvailableSessions = ({total, therapistinfo, setTherapistId, therapistId })
             toast.error("Please pick a date and time");
             return; // Early return on validation failure
         }
-
-        // Payment processing function
+    
         function payKorapay() {
+            // Initialize Korapay
             window.Korapay.initialize({
                 key: import.meta.env.VITE_Ecommerce_key,
                 reference: `mindpal${Date.now()}`,
-                amount: total, // Ensure 'total' is defined or passed in
+                amount: total, // Ensure 'total' is defined
                 currency: "NGN",
                 customer: {
                     name: `${userDetails.firstName} ${userDetails.lastName}`,
                     email: userDetails.email
                 }
             });
-
-            Swal.fire({
-                title: 'That is great',
-                text: "You have taken the first step to mental health care! Your session has successfully been booked.",
-                icon: 'success',
-                customClass: {
-                    popup: 'my-popup-class',
-                    title: 'my-title-class',
-                    content: 'my-content-class',
-                    confirmButton: 'my-confirm-class',
-                    cancelButton: 'my-cancel-class'
-                },
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    navigate("/"); // Use navigate instead of nav
+    
+            window.Korapay.pay().then((paymentResponse) => {
+                if (paymentResponse.status === 'success') {
+                    const url = `https://mind-pal-8a5l.onrender.com/api/v1/appointments/book/${userId}`;
+                    const data = { therapistId: SendTherapistId, date, time };
+    
+                    return axios.post(url, data); 
+                } else {
+                    return Promise.reject(new Error("Payment failed"));
                 }
+            })
+            .then((res) => {
+                console.log(res);
+                toast.success("Session successfully booked!");
+    
+                Swal.fire({
+                    title: 'That is great',
+                    text: "You have taken the first step to mental health care! Your session has successfully been booked.",
+                    icon: 'success',
+                    customClass: {
+                        popup: 'my-popup-class',
+                        title: 'my-title-class',
+                        content: 'my-content-class',
+                        confirmButton: 'my-confirm-class',
+                        cancelButton: 'my-cancel-class'
+                    },
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        navigate("/"); 
+                    }
+                });
+            })
+            .catch((error) => {
+                console.error(error);
+                toast.error("Error booking session");
             });
         }
+    
         payKorapay();
-       
-        // const url = `https://mind-pal-8a5l.onrender.com/api/v1/appointments/book/${userId}`;
-        // const data = { SendTherapistId, date, time };
-        
-        // axios.post(url, data)
-        //     .then((res) => {
-        //         console.log(res);
-        //         toast.success("Session successfully booked!");
-        //         navigate("/login");
-        //     })
-        //     .catch((error) => {
-        //         console.log(error);
-        //         toast.error("Error booking session");
-        //     });
-
-        
-        
     };
+    
 
     return (
         <div className='AvailableSessions'>
