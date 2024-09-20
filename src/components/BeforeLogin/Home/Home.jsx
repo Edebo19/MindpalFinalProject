@@ -18,7 +18,7 @@ import { useSelector } from 'react-redux'
 
 const Home = () => {
   const navigate = useNavigate()
-  const isLoggedIn = useSelector((state)=>state)
+  const {isLoggedIn} = useSelector((state)=>state)
   useEffect(()=>{
     Aos.init();
   },[])
@@ -89,7 +89,7 @@ const Home = () => {
               isLoggedIn ?
               <button onClick={()=> navigate("/login")}>Book a session</button>
               :
-          <button onClick={()=> navigate("/about")}>Book a session</button>
+          <button onClick={()=> navigate("/")}>Book a session</button>
             }
           </div>
         </div>

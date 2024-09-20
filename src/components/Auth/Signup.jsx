@@ -19,6 +19,7 @@ const Signup = () => {
   const [passwordErrorMsg, setPasswordErrorMsg] = useState("")
   const [passwordError, setPasswordError] = useState(false)
   const [loading, setLoading] = useState()
+  const [passwordVisible, setPasswordVisible] = useState(false); 
 
 
   const validateEmail = (input) => {
@@ -150,10 +151,17 @@ const goHome=()=>{
                 emailError ? <p style={{color:"red", paddingInline:"5px", fontFamily:"inherit"}}>{emailErrorMsg}</p>: null
               }
             </>
-            <div className="signupInputBox">
-              <input type='password' className="signupInput" onChange={handlePassword} placeholder='Password' required={true}/>
-              <div className="signupEye"> <IoEye /> </div>
-              
+            <div className="thesignupInputBox">
+              <input
+                className="thesignupInput"
+                type={passwordVisible ? "text" : "password"}
+                placeholder="Password"
+                name="password"
+                onChange={handlePassword}
+              />
+              <div className="thesignupEye" onClick={() => setPasswordVisible(!passwordVisible)}>
+                {passwordVisible ? <IoEyeOff /> : <IoEye />}
+              </div>
             </div>
             <>
               {
