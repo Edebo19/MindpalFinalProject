@@ -10,6 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 // import axios from "axios";
 import { BiLoaderCircle } from "react-icons/bi";
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const Thesignup = () => {
   const [formData, setFormData] = useState({

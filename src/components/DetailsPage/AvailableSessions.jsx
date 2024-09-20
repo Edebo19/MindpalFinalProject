@@ -29,17 +29,35 @@ const        AvailableSessions = ({therapistinfo, setTherapistId, therapistId}) 
         if (!SendTherapistId || !date || !time) {
             toast.error("Please pick a date and time")
         } else {    
-            const url =`https://mind-pal-8a5l.onrender.com/api/v1/appointment/book/${deets}`
-            const data ={SendTherapistId, date, time}
-            axios.post(url, data)
-            .then((res)=>{
-                console.log(res)
-                toast.success("session Successfully booked!")
-                navigate("/login")
-            })
-            .catch((error)=>{
-                console.log(error)
-            })
+
+            Swal.fire({
+                title: 'That is great',
+                text:"You have taken the first step to mental health Care! Your session has successfully been booked.",
+                icon: 'success',
+                customClass: {
+                  popup: 'my-popup-class',          // Custom class for the popup
+                  title: 'my-title-class',          // Custom class for the title
+                  content: 'my-content-class',      // Custom class for the content
+                  confirmButton: 'my-confirm-class', // Custom class for the confirm button
+                  cancelButton: 'my-cancel-class'   // Custom class for the cancel button
+                },
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  nav(`/`);
+                }
+              });
+            // const url =`https://mind-pal-8a5l.onrender.com/api/v1/appointments/book/${deets}`
+            // const data ={SendTherapistId, date, time}
+            // console.log(data)
+            // axios.post(url, data)
+            // .then((res)=>{
+            //     console.log(res)
+            //     toast.success("session Successfully booked!")
+            //     navigate("/login")
+            // })
+            // .catch((error)=>{
+            //     console.log(error)
+            // })
         }   
 
     }
