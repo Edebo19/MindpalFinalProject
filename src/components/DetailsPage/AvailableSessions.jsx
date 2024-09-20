@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import axios from 'axios'
 import { toast } from 'react-toastify'
+import Swal from 'sweetalert2'
 
 const        AvailableSessions = ({therapistinfo, setTherapistId, therapistId}) => {
     const [time, setTime]= useState("")
