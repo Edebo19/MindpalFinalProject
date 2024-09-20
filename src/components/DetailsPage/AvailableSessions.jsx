@@ -59,8 +59,8 @@ const AvailableSessions = ({total, therapistinfo, setTherapistId, therapistId })
                 }
             });
         }
-
-        // Uncomment and complete the following code to handle the booking
+        payKorapay();
+       
         // const url = `https://mind-pal-8a5l.onrender.com/api/v1/appointments/book/${userId}`;
         // const data = { SendTherapistId, date, time };
         
@@ -75,8 +75,8 @@ const AvailableSessions = ({total, therapistinfo, setTherapistId, therapistId })
         //         toast.error("Error booking session");
         //     });
 
-        // Call the payment function here if you want to process payment after the appointment is created
-        payKorapay();
+        
+        
     };
 
     return (

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import "./Signup.css"
 import loginlogo from "../../assets/loginlogo.png"
-import { IoEye } from "react-icons/io5";
+import { IoEye, IoEyeOff } from "react-icons/io5";
 import { replace, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import axios from 'axios';
@@ -151,15 +151,15 @@ const goHome=()=>{
                 emailError ? <p style={{color:"red", paddingInline:"5px", fontFamily:"inherit"}}>{emailErrorMsg}</p>: null
               }
             </>
-            <div className="thesignupInputBox">
+            <div className="signupInputBox">
               <input
-                className="thesignupInput"
+                className="signupInput"
                 type={passwordVisible ? "text" : "password"}
                 placeholder="Password"
                 name="password"
                 onChange={handlePassword}
               />
-              <div className="thesignupEye" onClick={() => setPasswordVisible(!passwordVisible)}>
+              <div className="signupEye" onClick={() => setPasswordVisible(!passwordVisible)}>
                 {passwordVisible ? <IoEyeOff /> : <IoEye />}
               </div>
             </div>
