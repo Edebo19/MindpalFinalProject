@@ -18,6 +18,7 @@ export const appSlice = createSlice({
         },
         logout: (state) => {
           state.isLoggedIn = false;
+          state.userDetails={}
           localStorage.removeItem('isLoggedIn'); 
         },
         saveToken:(state, {payload})=>{
