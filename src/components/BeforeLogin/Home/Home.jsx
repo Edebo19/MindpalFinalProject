@@ -81,7 +81,7 @@ const Home = () => {
         <div className="HeroImageText">
          <div className="HeroText">
          <h1>
-          Let’s build a <br/>  world of healthy minds.
+          Let's build a <br/>  world of healthy minds.
           </h1>
           <p>Discover a journey to mental well-being with expert guidance, supportive communities, and personalized resources</p>
          </div>
