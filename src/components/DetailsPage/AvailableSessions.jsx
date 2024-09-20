@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './AvailableSessions.css';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -9,10 +9,12 @@ import axios from 'axios';
 const AvailableSessions = ({total, therapistinfo, setTherapistId, therapistId }) => {
     const [time, setTime] = useState("");
     const [date, setDate] = useState("");
+    const [successful, setSuccessful] = useState(false)
     const SendTherapistId = therapistId;
     const navigate = useNavigate();
 
     const { userDetails } = useSelector((state) => state);
+    
     const userId = userDetails._id;
 
     const handleDateChange = (e) => {
@@ -26,63 +28,68 @@ const AvailableSessions = ({total, therapistinfo, setTherapistId, therapistId })
     const bookAppointment = () => {
         if (!SendTherapistId || !date || !time) {
             toast.error("Please pick a date and time");
-            return; // Early return on validation failure
+            return; 
         }
-    
+
         function payKorapay() {
-            // Initialize Korapay
             window.Korapay.initialize({
                 key: import.meta.env.VITE_Ecommerce_key,
                 reference: `mindpal${Date.now()}`,
-                amount: total, // Ensure 'total' is defined
+                amount: total, 
                 currency: "NGN",
                 customer: {
                     name: `${userDetails.firstName} ${userDetails.lastName}`,
                     email: userDetails.email
+                },
+                onSuccess: ()=>{
+                    setSuccessful(true)
                 }
-            });
-    
-            window.Korapay.pay().then((paymentResponse) => {
-                if (paymentResponse.status === 'success') {
-                    const url = `https://mind-pal-8a5l.onrender.com/api/v1/appointments/book/${userId}`;
-                    const data = { therapistId: SendTherapistId, date, time };
-    
-                    return axios.post(url, data); 
-                } else {
-                    return Promise.reject(new Error("Payment failed"));
-                }
-            })
-            .then((res) => {
-                console.log(res);
-                toast.success("Session successfully booked!");
-    
-                Swal.fire({
-                    title: 'That is great',
-                    text: "You have taken the first step to mental health care! Your session has successfully been booked.",
-                    icon: 'success',
-                    customClass: {
-                        popup: 'my-popup-class',
-                        title: 'my-title-class',
-                        content: 'my-content-class',
-                        confirmButton: 'my-confirm-class',
-                        cancelButton: 'my-cancel-class'
-                    },
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        navigate("/"); 
-                    }
-                });
-            })
-            .catch((error) => {
-                console.error(error);
-                toast.error("Error booking session");
-            });
-        }
-    
-        payKorapay();
-    };
-    
+            });   
+              
+            
 
+            
+        }
+        payKorapay();
+       
+        
+
+        
+        
+    };
+    useEffect(()=>{
+        if (successful === true) {
+            const url = `https://mind-pal-8a5l.onrender.com/api/v1/appointment/book/${userId}`;
+            const data = { therapistId:SendTherapistId, date, time };
+        
+            axios.post(url, data)
+                .then((res) => {
+                    console.log(res);
+                    Swal.fire({
+                        title: 'That is great',
+                        text: "You have taken the first step to mental health care! Your session has successfully been booked. Please check your email for your appointment details",
+                        icon: 'success',
+                        customClass: {
+                            popup: 'my-popup-class',
+                            title: 'my-title-class',
+                            content: 'my-content-class',
+                            confirmButton: 'my-confirm-class',
+                            cancelButton: 'my-cancel-class'
+                        },
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            navigate("/"); 
+                        }
+                    });
+                })
+                .catch((error) => {
+                    console.log(error);
+                    toast.error("Error booking session");
+                });
+        } else {
+            toast.error("Booking failed")
+        }
+    },[successful])
     return (
         <div className='AvailableSessions'>
             <div className="AvailableSide">

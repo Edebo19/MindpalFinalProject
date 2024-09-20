@@ -76,7 +76,7 @@ const Thesignup = () => {
 
     const formDataObj = new FormData();
   
-    formDataObj.append("firstNamegit ", formData.firstName);
+    formDataObj.append("firstName", formData.firstName);
     formDataObj.append("lastName", formData.lastName);
     formDataObj.append("specialty", formData.specialty);
     formDataObj.append("fieldExperience", formData.experience);
