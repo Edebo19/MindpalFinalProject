@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux'
 
 const BFLayout = () => {
   
-  const isLoggedIn = useSelector((state)=>state.Mindpal.isLoggedIn)
+  const {isLoggedIn} = useSelector((state)=>state)
   return (
     <div>
         {

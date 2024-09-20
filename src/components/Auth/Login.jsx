@@ -9,18 +9,11 @@ import "react-toastify/dist/ReactToastify.css";
 import { BiLoaderCircle } from "react-icons/bi";
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import { login } from '../Global/slice';
+import { login, saveToken, saveUserDetails } from '../Global/slice';
 
 
 const Login = () => {
-  // const nav = useNavigate()
   const dispatch = useDispatch()
-
-  // const loginUser =()=>{
-  //   dispatch(login())
-  //   nav("/")
-  // }
-
 
   const [formData, setFormData] = useState({
     email: '',
@@ -71,9 +64,10 @@ const Login = () => {
     const LoginUrl = `${url}/user/log-in`
     axios.post(LoginUrl, formData)
     .then((res)=>{
-      console.log(res)
+      console.log(res.data.data)
+      dispatch(saveUserDetails(res.data.data))
       setLoading(false)
-      
+      dispatch(saveToken(res.data.token))
       Swal.fire({
         title: "Welcome!",
         text: "Login Successful!",

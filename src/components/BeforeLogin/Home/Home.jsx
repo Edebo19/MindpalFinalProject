@@ -18,7 +18,7 @@ import { useSelector } from 'react-redux'
 
 const Home = () => {
   const navigate = useNavigate()
-  const isLoggedIn = useSelector((state)=>state.Mindpal.isLoggedIn)
+  const isLoggedIn = useSelector((state)=>state)
   useEffect(()=>{
     Aos.init();
   },[])
@@ -160,10 +160,10 @@ const Home = () => {
               <div className="TherapistImagebox"  data-aos="fade-left" 
               data-aos-easing="linear"
               data-aos-duration="900">
-            <div className="TherapistImage" onClick={()=>navigate("/therapist/therapist-details")}>
+            <div className="TherapistImage" onClick={()=>navigate("/therapistLayout/therapist-details")}>
               <img src={e.image} alt="" />
             </div>
-            <div className="TherapistName" onClick={()=>navigate("/therapist/therapist-details")}>
+            <div className="TherapistName" onClick={()=>navigate("/therapistLayout/therapist-details")}>
               <p>{e.TherapistName}</p>
             </div>
           </div>

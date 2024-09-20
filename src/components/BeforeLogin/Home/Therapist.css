@@ -5,6 +5,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    overflow: hidden;
 }
 .MainTherapistCircles{
     height: max-content;
@@ -15,6 +16,25 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
+}
+.TherapistMainHeader{
+    height: max-content;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 20px;
+    align-items: center;
+    gap: 10px;
+
+    & h2{
+        font-family: var(--generalFontFamily--);
+        font-size: 34px;
+    }
+    & p{
+        font-family: var(--generalFontFamily--);
+        font-size: 20px;
+    }
 }
 .TherapistImagebox{
     height: 230px;

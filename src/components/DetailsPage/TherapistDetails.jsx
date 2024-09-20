@@ -1,11 +1,37 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './TherapistDetails.css'
 import profile from '../../assets/mr2.jpeg'
 import AvailableSessions from './AvailableSessions'
 import { RiCloseLargeFill } from 'react-icons/ri'
+import { useParams } from 'react-router-dom'
+import axios from 'axios'
+import { useSelector } from 'react-redux'
 
 const TherapistDetails = () => {
   const [bookSession, setBookSession] = useState(false)
+  const {id}= useParams()
+  const [therapistId, setTherapistId] = useState("")
+  const [therapistinfo, setTherapistinfo] = useState("")
+  // const item = therapist.find(item => item.id === parseInt(id));
+  // console.log(item)
+  let {bookedTherapistId} = useSelector((state)=>state)
+    bookedTherapistId = id
+  console.log(bookedTherapistId)
+  const getOneTherapist =()=>{
+    const url =`https://mind-pal-8a5l.onrender.com/api/v1/therapist/one/${id}`
+    axios.get(url)
+    .then((res)=>{
+      console.log(res.data.data)
+      setTherapistinfo(res.data.data)
+      setTherapistId(bookedTherapistId)
+    })
+    .catch((error)=>{
+      console.log(error)
+    })
+  }
+  useEffect(()=>{
+    getOneTherapist()
+  },[])
   return (
     <div className='TherapistDetails'>
         <div className="TherapistHero"></div>
@@ -14,8 +40,7 @@ const TherapistDetails = () => {
               <img src={profile} alt="" />
             </div>
             <div className="TherapistDetailsName">
-                <h1>Dr Femi Adewale</h1>
-                <h3>Doctor</h3>
+                <h1>Dr {therapistinfo.firstName} {therapistinfo.lastName}</h1>
             </div>
         </div>
         <div className="OverView">
@@ -26,7 +51,7 @@ const TherapistDetails = () => {
             <div className="OverViewBoxMain">
               <p>Dr. Nneoma Okoro specializes in 
                 treating survivors of relationship abuse, domestic violence, and trauma.
-                Her expertise includes anxiety management, depression, and post-traumatic stress disorder (PTSD).
+                His expertise includes {therapistinfo.specialty} and post-traumatic stress disorder (PTSD).
                 With a warm and non-judgmental approach, Dr. Okoro creates a safe space for clients to heal and reclaim their lives.
               </p>
             </div>
@@ -35,22 +60,14 @@ const TherapistDetails = () => {
             <div className="BookBox">
               <div className="Inperson">
                 <div className="bookBoxText">
-                  <h3>In person</h3>
-                  <h3 style={{fontWeight: "400", fontSize:"14px"}}>₦30,000 per session</h3>
+                  <h3>Virtual</h3>
+                  <h3 style={{fontWeight: "400", fontSize:"18px"}}>₦30,000 per session</h3>
                 </div>
                 <div className="bookboxButton">
                   <button onClick={()=>setBookSession(true)}>Book</button>
                 </div>
               </div>
-              <div className="Virtual">
-              <div className="bookBoxText">
-                  <h3>In person</h3>
-                  <h3 style={{fontWeight: "400", fontSize:"14px"}}>₦30,000 per session</h3>
-                </div>
-                <div className="bookboxButton">
-                  <button onClick={()=>setBookSession(true)}>Book</button>
-                </div>
-              </div>
+              
             </div>
           </div>
         </div>
@@ -81,7 +98,7 @@ const TherapistDetails = () => {
               <div className="AvailableSessionCloseDiv">
               <RiCloseLargeFill onClick={()=> setBookSession(false)} cursor= "pointer" size={30} color='white' />
               </div>
-             <AvailableSessions/>
+             <AvailableSessions therapistId={therapistId} setTherapistId={setTherapistId} therapistinfo={therapistinfo}/>
             </div> : null
               }
             </>

@@ -10,30 +10,25 @@ import { logout } from '../../Global/slice';
 import { BiNotification } from 'react-icons/bi';
 import { IoMdNotificationsOutline } from 'react-icons/io';
 
-const SecondHeader = () => {
+const SecondHeader = ({setIsLoggedIn}) => {
     const Navigate = useNavigate()
     const [mobile, setMobile] = useState(false)
     const {pathname} = useLocation()
-
+    // console.log(pathname)
 
     const [isactive, setIsactive] = useState(false)
     const [home, setHome] = useState(false)
     const [about, setAbout] = useState(false)
     const [contact, setContact] = useState(false)
-    const [therapist, setTherapist] = useState(false)
     const [team, setTeam] = useState(false)
-    const scrollToTop = () => {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-      };
+    const [therapist, setTherapist] = useState(false)
     useEffect(()=>{
         if (pathname === "/"){
             setAbout(false)
             setHome(true)
             setContact(false)
             setTeam(false)
+            setTherapist(false)
         }else  if (pathname === "/about"){
         setAbout(true)
         setHome(false)
@@ -46,23 +41,22 @@ const SecondHeader = () => {
             setContact(true)
             setTeam(false)
             setTherapist(false)
-         }else  if (pathname === "/therapist"){
-            setAbout(false)
-            setHome(false)
-            setContact(false)
-            setTeam(false)
-            setTherapist(true)
          } else  if (pathname === "/team"){
             setAbout(false)
             setHome(false)
             setContact(false)
             setTherapist(false)
             setTeam(true)
+        }else  if (pathname === "/therapist"){
+            setAbout(false)
+            setHome(false)
+            setContact(false)
+            setTeam(false)
+            setTherapist(true)
         }
         
     },[pathname])
     const handleNav = (val)=>{
-        scrollToTop()
         if (val=="/"){
             Navigate("/")
             setIsactive(true)
@@ -79,6 +73,8 @@ const SecondHeader = () => {
                     teamId.scrollIntoView({behavior: "smooth"});
                 }
             }, 100);
+        }else if (val=="/alltherapist"){
+            Navigate("/alltherapist")
         }
     } 
     const handleClick = () => {
@@ -92,9 +88,11 @@ const SecondHeader = () => {
         }, 100);
     };
     const dispatch = useDispatch()
-const logoutFunction =()=>{
-    dispatch(logout())
-}
+
+    const logoutFunction =()=>{
+        dispatch(logout())
+        Navigate("/login")
+    }
     
     return (
         <div className='Header'>
@@ -109,13 +107,13 @@ const logoutFunction =()=>{
                             <nav style={{ textDecoration: "none" }} className={about ? "NavActive" : "NavNotActive"} onClick={()=>handleNav("/about")}>About</nav>
                             <nav style={{ textDecoration: "none" }} className={contact ? "NavActive" : "NavNotActive"} onClick={()=>handleNav("/contact")}>Contact</nav>
                             <nav style={{ textDecoration: "none" }} className={team ? "NavActive" : "NavNotActive"} onClick={()=>handleNav("/team")} >Team</nav>
-                            <nav style={{ textDecoration: "none" }} className={therapist ? "NavActive" : "NavNotActive"} onClick={()=>handleNav("/therapist")} >Therapist</nav>
+                            <nav style={{ textDecoration: "none" }} className={therapist ? "NavActive" : "NavNotActive"} onClick={()=>handleNav("/alltherapist")} >Therapist</nav>
                         </ul>
                     </nav>
                     <div className="Auth">
                     <IoMdNotificationsOutline size={24}/>
-                    <div className="Account" onClick={()=>Navigate("/therapist/user-profile")}> <AiOutlineUser size={24} /> My Profile</div>
-                    <button onClick={logoutFunction } >Logout</button>
+                    <div className="Account" onClick={()=>Navigate("/therapistLayout/user-profile")}> <AiOutlineUser size={24} /> My Profile</div>
+                    <button onClick={logoutFunction} >Logout</button>
                         
                 </div>
                 </div>
@@ -134,4 +132,4 @@ const logoutFunction =()=>{
     )
 }
 
-export default SecondHeader
+export default SecondHeader

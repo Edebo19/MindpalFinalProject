@@ -1,13 +1,22 @@
 import React, { useState } from 'react'
 import './AvailableSessions.css'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import axios from 'axios'
+import { toast } from 'react-toastify'
 
-const AvailableSessions = () => {
+const        AvailableSessions = ({therapistinfo, setTherapistId, therapistId}) => {
     const [time, setTime]= useState("")
     const [date, setDate]= useState("")
-    const check = new Date().getHours().toLocaleString()
-    // const time = new Date().toTimeString()
-    console.log(time)
+    const SendTherapistId = therapistId
+    console.log(SendTherapistId)
+    const navigate = useNavigate()
+    
+
+    const {userDetails} = useSelector((state)=> state)
+    const deets = userDetails._id 
+
+
 
     const SendDate =(e)=>{
         setDate(e.target.value)
@@ -15,7 +24,26 @@ const AvailableSessions = () => {
     const SendTime =(e)=>{
         setTime(e.target.value)
     }
-    console.log(time)
+
+    const bookAppointment =()=>{
+        if (!SendTherapistId || !date || !time) {
+            toast.error("Please pick a date and time")
+        } else {    
+            const url =`https://mind-pal-8a5l.onrender.com/api/v1/appointment/book/${deets}`
+            const data ={SendTherapistId, date, time}
+            axios.post(url, data)
+            .then((res)=>{
+                console.log(res)
+                toast.success("session Successfully booked!")
+                navigate("/login")
+            })
+            .catch((error)=>{
+                console.log(error)
+            })
+        }   
+
+    }
+
   return (
     <div className='AvailableSessions'>
         <div className="AvailableSide">
@@ -27,7 +55,7 @@ const AvailableSessions = () => {
                 <div className="HoldSelectedAppointmentTherapist">
                     <p style={{fontWeight:"600", fontSize:"18px"}}>Selected Therapist:</p>
                 <div className='TherapistNameAppointment'>
-                    <p>Dr Nneoma Okafor</p>
+                    <p>Dr {therapistinfo.firstName} {therapistinfo.lastName}</p>
                 </div>
                 </div>
                 <div className="HoldAppointmentDate">
@@ -41,7 +69,7 @@ const AvailableSessions = () => {
             </div>
         </div>
         <div className="Continue">
-            <button>Continue</button>
+            <button onClick={bookAppointment}>Continue</button>
         </div>
     </div>
   )

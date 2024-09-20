@@ -160,7 +160,7 @@ const Thesignup = () => {
           },
         }).then((result) => {
           if (result.isConfirmed) {
-            nav(`/waitingforverification`);
+            nav(`/therapistlogin`);
           }
         });
       })

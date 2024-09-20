@@ -45,11 +45,11 @@ const App = () => {
 
   const router = createHashRouter([
     {
-      path: "/therapist",
+      path: "/therapistLayout",
       element:<TherapistLayout/>,
       children: [
         {
-          path:"therapist-details",
+          path:"therapist-details/:id",
           element: <TherapistDetails/>
         },
         {
@@ -79,7 +79,7 @@ const App = () => {
           element: <Team/>
         },
         {
-          path: "therapist",
+          path: "alltherapist",
           element: <Therapist/>
         },
        
@@ -122,7 +122,7 @@ const App = () => {
       element: <TherapistDashboardLayout/>,
       children: [
         {
-          path: "therapist-dashboard",
+          path: "therapist-dashboard/:id",
           element: <TherapistDashBoard/>,
           children:[
             {
