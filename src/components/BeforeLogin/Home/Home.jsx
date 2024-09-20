@@ -87,9 +87,9 @@ const Home = () => {
           <div className="HeroButton">
             {
               isLoggedIn ?
-              <button onClick={()=> navigate("/login")}>Book a session</button>
+              <button onClick={()=> navigate("/")}>Book a session</button>
               :
-          <button onClick={()=> navigate("/")}>Book a session</button>
+          <button onClick={()=> navigate("/login")}>Book a session</button>
             }
           </div>
         </div>
