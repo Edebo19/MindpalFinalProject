@@ -12,6 +12,7 @@ const TherapistDetails = () => {
   const {id}= useParams()
   const [therapistId, setTherapistId] = useState("")
   const [therapistinfo, setTherapistinfo] = useState("")
+  const [total, setTotal] = useState(30000)
   // const item = therapist.find(item => item.id === parseInt(id));
   // console.log(item)
   let {bookedTherapistId} = useSelector((state)=>state)
@@ -61,7 +62,7 @@ const TherapistDetails = () => {
               <div className="Inperson">
                 <div className="bookBoxText">
                   <h3>Virtual</h3>
-                  <h3 style={{fontWeight: "400", fontSize:"18px"}}>₦30,000 per session</h3>
+                  <h3 style={{fontWeight: "400", fontSize:"18px"}}>₦{total} per session</h3>
                 </div>
                 <div className="bookboxButton">
                   <button onClick={()=>setBookSession(true)}>Book</button>
@@ -98,7 +99,7 @@ const TherapistDetails = () => {
               <div className="AvailableSessionCloseDiv">
               <RiCloseLargeFill onClick={()=> setBookSession(false)} cursor= "pointer" size={30} color='white' />
               </div>
-             <AvailableSessions therapistId={therapistId} setTherapistId={setTherapistId} therapistinfo={therapistinfo}/>
+             <AvailableSessions total={total} therapistId={therapistId} setTherapistId={setTherapistId} therapistinfo={therapistinfo}/>
             </div> : null
               }
             </>
