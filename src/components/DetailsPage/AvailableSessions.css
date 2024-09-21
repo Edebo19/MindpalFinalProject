@@ -17,6 +17,13 @@
     flex-direction: column;
     gap: 5px;
 }
+.my-title-class{
+    font-family: var(--generalFontFamily--);
+    font-size: 20px;
+}
+.my-content-class{
+    font-family: var(--generalFontFamily--);
+}
 .Continue{
     height: 15%;
     width: 100%;

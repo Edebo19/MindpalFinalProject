@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import styled from 'styled-components';
 import gif from '../../assets/verifying.gif'
+import Swal from 'sweetalert2';
 
 const Container = styled.div`
   display: flex;

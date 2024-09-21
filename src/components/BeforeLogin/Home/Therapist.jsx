@@ -101,7 +101,7 @@ const Therapist = () => {
               data-aos-easing="linear"
               data-aos-duration="900">
             <div className="TherapistImage" onClick={()=>navigate(`/therapistLayout/therapist-details/${e._id}`)}>
-              <img src="" alt="" />
+              <img src={e.photo} alt="" />
             </div>
             <div className="TherapistName" onClick={()=>navigate(`/therapistLayout/therapist-details/${e._id}`)}>
               <p>Dr {e.firstName} {e.lastName}</p>

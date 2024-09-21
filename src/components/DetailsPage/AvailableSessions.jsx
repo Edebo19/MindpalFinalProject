@@ -52,10 +52,7 @@ const AvailableSessions = ({total, therapistinfo, setTherapistId, therapistId })
         }
         payKorapay();
        
-        
-
-        
-        
+  
     };
     useEffect(()=>{
         if (successful === true) {
@@ -86,9 +83,7 @@ const AvailableSessions = ({total, therapistinfo, setTherapistId, therapistId })
                     console.log(error);
                     toast.error("Error booking session");
                 });
-        } else {
-            toast.error("Booking failed")
-        }
+        } 
     },[successful])
     return (
         <div className='AvailableSessions'>
