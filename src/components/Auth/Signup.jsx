@@ -89,7 +89,7 @@ const Signup = () => {
       console.log(data)
       axios.post(signUpUrl, data)
       .then((res)=>{
-        console.log(res)
+        console.log(res.data.message)
         setLoading(false)
         Swal.fire({
           title: 'Hi there! 😊👋',
@@ -110,8 +110,8 @@ const Signup = () => {
       })
       .catch((error)=>{
         setLoading(false)
-        console.log(error)
-        toast.error("Sign up unsuccessful!")
+        console.log(error.response.data.error)
+        toast.error(`${error.response.data.error}`)
       })
 
     }

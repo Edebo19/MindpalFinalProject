@@ -54,14 +54,18 @@ const AvailableSessions = ({total, therapistinfo, setTherapistId, therapistId })
        
   
     };
+    const [booking, setBooking] = useState(false)
     useEffect(()=>{
         if (successful === true) {
+            navigate(`/therapistLayout/therapist-details/${setTherapistId}`)
+            setBooking(true)
             const url = `https://mind-pal-8a5l.onrender.com/api/v1/appointment/book/${userId}`;
             const data = { therapistId:SendTherapistId, date, time };
-        
+            console.log("running")
             axios.post(url, data)
                 .then((res) => {
                     console.log(res);
+                    setBooking(false)
                     Swal.fire({
                         title: 'That is great',
                         text: "You have taken the first step to mental health care! Your session has successfully been booked. Please check your email for your appointment details",
@@ -81,6 +85,7 @@ const AvailableSessions = ({total, therapistinfo, setTherapistId, therapistId })
                 })
                 .catch((error) => {
                     console.log(error);
+                    setBooking(false)
                     toast.error("Error booking session");
                 });
         } 
@@ -110,7 +115,11 @@ const AvailableSessions = ({total, therapistinfo, setTherapistId, therapistId })
                 </div>
             </div>
             <div className="Continue">
-                <button onClick={bookAppointment}>Continue</button>
+                <button onClick={bookAppointment}>
+                    {
+                        booking ? "Booking..." : "Continue"
+                    }
+                </button>
             </div>
         </div>
     );
