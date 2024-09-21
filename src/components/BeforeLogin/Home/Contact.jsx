@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './Contact.css'
+import Swal from 'sweetalert2'
+import { useNavigate } from 'react-router-dom'
 
 const Contact = () => {
   const [email, setEmail] = useState("")
@@ -23,6 +25,28 @@ const Contact = () => {
       setEnableButton(false);
     }
   }, [fullname, email, message]);
+
+  const navigate = useNavigate()
+  const ContactedSuccessfully = () => {
+    Swal.fire({
+      title: 'Nice one!',
+      text: "Your feedback has been sent successfully!",
+      icon: 'success',
+      customClass: {
+        popup: 'my-popup-class',
+        title: 'my-title-class',
+        content: 'my-content-class',
+        confirmButton: 'my-confirm-class',
+        cancelButton: 'my-cancel-class'
+      },
+      confirmButtonText: 'Okay',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        navigate("/")
+      }
+    });
+  };
+  
   return (
     <div className='Contact'>
       <div className="PrimaryBox">
@@ -41,7 +65,7 @@ const Contact = () => {
             </textarea>
           </div>
           <div className="HoldContactButton">
-            <button disabled= {enableButton === false}>Submit</button>
+            <button onClick={ContactedSuccessfully} disabled= {enableButton === false}>Submit</button>
           </div>
         </div>
       </div>

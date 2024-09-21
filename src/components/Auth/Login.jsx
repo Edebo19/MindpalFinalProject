@@ -71,7 +71,13 @@ const Login = () => {
       Swal.fire({
         title: "Welcome!",
         text: "Login Successful!",
-        icon: "success"
+        icon: "success",
+        customClass: {
+          popup: 'my-popup-class',
+          title: 'my-title-class',
+          content: 'my-content-class',
+          confirmButton: 'my-confirm-class',
+        },
       }).then((result) => {
         if (result.isConfirmed) {
           navigate("/");

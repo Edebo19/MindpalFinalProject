@@ -28,6 +28,12 @@
 
     }
 }
+.my-title-class{
+    font-family: var(--generalFontFamily--);
+}
+.my-content-class{
+    font-family: var(--generalFontFamily--);
+}
 .loginLogoBox img{
     width: 100%;
     height: 100%;

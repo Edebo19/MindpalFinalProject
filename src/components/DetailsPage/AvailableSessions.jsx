@@ -6,15 +6,14 @@ import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
 import axios from 'axios';
 
-const AvailableSessions = ({total, setBookSession, therapistinfo, setTherapistId, therapistId }) => {
+const AvailableSessions = ({total, setBookSession, therapistinfo, therapistId }) => {
     const [time, setTime] = useState("");
     const [date, setDate] = useState("");
     const [successful, setSuccessful] = useState(false)
     const SendTherapistId = therapistId;
+    const [proceedtoChoose, setProceedtoChoose] = useState(false)
     const navigate = useNavigate();
-
     const { userDetails } = useSelector((state) => state);
-    
     const userId = userDetails._id;
 
     const handleDateChange = (e) => {
@@ -43,7 +42,6 @@ const AvailableSessions = ({total, setBookSession, therapistinfo, setTherapistId
                 },
                 onSuccess: ()=>{
                     setSuccessful(true)
-                    setBookSession(false)
                 }
             });   
               
@@ -93,6 +91,9 @@ const AvailableSessions = ({total, setBookSession, therapistinfo, setTherapistId
     return (
         <div className='AvailableSessions'>
             <div className="AvailableSide">
+                {
+                    proceedtoChoose ? 
+                    <>
                 <div className="AvailableSideHeader">
                     <h2>Available Sessions</h2>
                     <p>Book 1:1 sessions from the options</p>
@@ -113,13 +114,33 @@ const AvailableSessions = ({total, setBookSession, therapistinfo, setTherapistId
                         <input type="time" value={time} onChange={handleTimeChange} />
                     </div>
                 </div>
+                    </>
+                    :
+                <>
+                <div className="BeforeAvailable">
+                    <h2>Booking Procedure</h2>
+                </div>
+                <div className="AvailableSideMain">
+                    <ul style={{padding: "20px "}}>
+                        <li>You have picked a therapist you wish to have a session with. To cancel and pick another therapist, please click on close button to go to the therapist page and select another therapist.   </li>
+                        <li>If you wish to continue with this therapist, You have to pick a time and date convenient for you.</li>
+                        <li>After picking a convenient date and time, secure your session with Payment.</li>
+                        <li>When your payment has been made, you will receive a mail with your appointments details.</li>
+                    </ul>
+                    <div className="AvailableProceed">
+                        <h4>To proceed please click on the continue button.</h4>
+                    </div>
+                </div>
+                </>
+                }
             </div>
             <div className="Continue">
-                <button onClick={bookAppointment}>
-                    {
-                        booking ? "Booking..." : "Continue"
-                    }
-                </button>
+                {
+                    proceedtoChoose ? 
+                    <button onClick={bookAppointment}>Pay</button>
+                    :
+                <button onClick={()=> setProceedtoChoose(true)}>Continue</button>
+                }
             </div>
         </div>
     );

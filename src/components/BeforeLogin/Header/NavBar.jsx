@@ -111,8 +111,8 @@ const handleContact =()=>{
             {
               isLoggedIn ? 
               <>
-                <NavLink onClick={()=>setMobile(false)} style={{textDecoration: "none"}} className={({isActive})=> [isActive ? "NavActive": "NavNotActive"]} to="/alltherapist">Therapists</NavLink>
-              <div className="Account" onClick={()=>Navigate("/therapistLayout/user-profile")}> <AiOutlineUser size={24} /> My Profile</div>
+                <nav onClick={handleTherapist} style={{textDecoration: "none"}} className={({isActive})=> [isActive ? "NavActive": "NavNotActive"]} to="/alltherapist">Therapists</nav>
+              <div className="Account" onClick={()=>Navigate("/therapistLayout/user-profile")}> <AiOutlineUser size={20} /> My Profile</div>
               </>
               : null
             }

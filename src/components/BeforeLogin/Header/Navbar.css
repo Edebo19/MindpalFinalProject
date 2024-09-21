@@ -40,7 +40,7 @@
             align-items: center;
             color: white;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size: 20px;
+            font-size: 16px;
             color: black;
             transition:  all 350ms ease-in-out;
             cursor: pointer;
@@ -48,13 +48,13 @@
 
         & .NavActive{
             list-style: none;
-            font-size: 23px;
+            font-size: 20px;
             color: #00A991;
             font-weight: 500;
         }
         & .NavNotActive{
             list-style: none;
-            font-size: 22px;
+            font-size: 20px;
             color: #737373;
         }
     }

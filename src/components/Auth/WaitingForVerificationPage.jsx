@@ -57,6 +57,16 @@ const HoldGif = styled.img`
   height: 100%;
   width: 100%;
 `
+const MyTitle = styled.h2`
+  font-family: var(--generalFontFamily--);
+  color: #4CAF50; 
+  font-size: 24px; 
+`;
+
+const MyContent = styled.p`
+  font-family: var(--generalFontFamily--);
+  color: black; 
+`;
 
 
 const WaitingForVerificationPage = () => {
@@ -70,19 +80,19 @@ const WaitingForVerificationPage = () => {
           console.log(res)
           if(res.status === 200){
             Swal.fire({
-              title: 'Hi there! 😊👋',
-              text: `${res.data.message}`,
+              title: <MyTitle>Hi there! 😊👋</MyTitle>,
+              html: <MyContent>{res.data.message}</MyContent>, 
               icon: 'success',
               customClass: {
-                popup: 'my-popup-class',          // Custom class for the popup
-                title: 'my-title-class',          // Custom class for the title
-                content: 'my-content-class',      // Custom class for the content
-                confirmButton: 'my-confirm-class', // Custom class for the confirm button
-                cancelButton: 'my-cancel-class'   // Custom class for the cancel button
+                popup: 'my-popup-class',
+                title: 'my-title-class',
+                content: 'my-content-class',
+                confirmButton: 'my-confirm-class',
               },
+              confirmButtonText: <MyConfirmButton>Okay</MyConfirmButton>, 
             }).then((result) => {
               if (result.isConfirmed) {
-                nav(`/login`);
+                navigate(`/login`);
               }
             });
           }
