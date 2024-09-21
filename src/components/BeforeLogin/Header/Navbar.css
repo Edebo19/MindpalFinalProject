@@ -19,18 +19,32 @@
 .Barnav{
     height: 80%;
     width: 100%;
-    /* background: blue; */
     display: flex;
     flex-direction: column;
+    gap: 20px;
 
     & ul{
-        height: 100%;
+        height: max-content;
         width: 100%;
         display: flex;
         flex-direction: column;
         /* align-items: center; */
         /* justify-content: center; */
-        gap: 20px;
+        gap: 15px;
+
+        & .Account{
+            height: 46.28px;
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 20px;
+            color: black;
+            transition:  all 350ms ease-in-out;
+            cursor: pointer;
+        }
 
         & .NavActive{
             list-style: none;
@@ -57,6 +71,12 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+
+
+    & .Account:hover{
+        transition:  all 350ms ease-in-out;
+        border-bottom: 2px solid #222222;
+    }
 
     & button{
         height: 28%;

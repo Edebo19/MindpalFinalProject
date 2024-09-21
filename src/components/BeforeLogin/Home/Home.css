@@ -363,6 +363,7 @@
     border-radius: 15px;
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
 }
 .OurClients{
     height: 55vh;

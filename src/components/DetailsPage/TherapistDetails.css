@@ -201,7 +201,7 @@
     background: rgba(128, 128, 128, 0.783);
     position: absolute;
     top: 0px;
-    z-index: 999;
+    z-index: 9999;
     position: fixed;
     display: flex;
     backdrop-filter: blur(5px);
