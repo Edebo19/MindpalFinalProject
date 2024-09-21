@@ -42,6 +42,13 @@
     border-radius: 50%;
     background: rgba(165, 159, 159, 0.669);
     border: 3px solid white;
+
+
+    & img{
+        width: 100%;
+        height: 100%;
+
+border-radius: 50%;    }
 }
 .Cameradiv{
     height: 100%;

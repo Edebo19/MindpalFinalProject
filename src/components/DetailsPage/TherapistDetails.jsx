@@ -23,7 +23,7 @@ const TherapistDetails = () => {
     const url =`https://mind-pal-8a5l.onrender.com/api/v1/therapist/one/${id}`
     axios.get(url)
     .then((res)=>{
-      console.log(res.data.data)
+      // console.log(res.data.data)
       setTherapistinfo(res.data.data)
       setTherapistId(bookedTherapistId)
     })

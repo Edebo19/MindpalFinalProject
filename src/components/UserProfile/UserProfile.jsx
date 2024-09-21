@@ -1,22 +1,29 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './UserProfile.css'
 import { BiCamera } from 'react-icons/bi'
 import { useSelector } from 'react-redux'
+import profile from '../../assets/userProfile.jpg'
 
 const UserProfile = () => {
     const [edit, setedit] = useState(false)
-    const firstname = "Chikwado"
-    const lastname = "Ndubisi"
-    const email = "kwado@gmail.com"
     const { userDetails } = useSelector((state)=> state)
-    const username = userDetails
-    console.log(username.firstName, "sbdjhbgyu")
+    const [firstName, setFirstName] = useState("")
+    const [lastName, setLastName] = useState("")
+    const [email, setEmail] = useState("")
+    // console.log(username.firstName, "sbdjhbgyu")
+    useEffect(()=>{
+        setFirstName(userDetails.firstName)
+        setLastName(userDetails.lastName)
+        setEmail(userDetails.email)
+    },[])
   return (
     <div className='UserProfile'>
         <div className="UserProfileCard">
             <div className="UserProfileTop"></div>
             <div className="HoldCircle">
-                <div className="ProfileCircle"></div>
+                <div className="ProfileCircle">
+                    <img src={profile} alt="" />
+                </div>
                 {
                     edit ? <div className="Cameradiv">
                     <div className="round">
@@ -26,8 +33,8 @@ const UserProfile = () => {
                 }
             </div>
             <div className="HoldName">
-                <h2></h2>
-                <p>kwado@gmail.com</p>
+                <h2>{firstName} {lastName}</h2>
+                <p>{email}</p>
             </div>
             {
                 edit ?
@@ -55,11 +62,11 @@ const UserProfile = () => {
                 <div className="HoldInputs">
                 <div className="inputHolderr">
                     <p>Firstname</p>
-                    <input type="text" value={firstname} placeholder='Enter firstname'/>
+                    <input type="text" value={firstName} placeholder='Enter firstname'/>
                 </div>
                 <div className="inputHolderr">
                     <p>Lastname</p>
-                    <input type="text" value={lastname} placeholder='Enter lastname'/>
+                    <input type="text" value={lastName} placeholder='Enter lastname'/>
                 </div>
                 <div className="inputHolderr">
                     <p>Email</p>
