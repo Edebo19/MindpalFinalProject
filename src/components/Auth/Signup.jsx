@@ -96,11 +96,11 @@ const Signup = () => {
           text: `${res.data.message}`,
           icon: 'success',
           customClass: {
-            popup: 'my-popup-class',          // Custom class for the popup
-            title: 'my-title-class',          // Custom class for the title
-            content: 'my-content-class',      // Custom class for the content
-            confirmButton: 'my-confirm-class', // Custom class for the confirm button
-            cancelButton: 'my-cancel-class'   // Custom class for the cancel button
+            popup: 'my-popup-class',
+            title: 'my-title-class',
+            content: 'my-content-class',    
+            confirmButton: 'my-confirm-class', 
+            cancelButton: 'my-cancel-class'   
           },
         }).then((result) => {
           if (result.isConfirmed) {

@@ -158,16 +158,31 @@ const Home = () => {
         <div className="TherapistCircles">
           {
             therapists.map((e)=>(
-              <div className="TherapistImagebox"  data-aos="fade-left" 
+              <>
+              {
+                isLoggedIn ? 
+                <div className="TherapistImagebox"  data-aos="fade-left" 
               data-aos-easing="linear"
               data-aos-duration="900">
-            <div className="TherapistImage" onClick={()=>navigate("/therapistLayout/therapist-details")}>
+            <div className="TherapistImage" onClick={()=>navigate("/alltherapist")}>
               <img src={e.image} alt="" />
             </div>
-            <div className="TherapistName" onClick={()=>navigate("/therapistLayout/therapist-details")}>
+            <div className="TherapistName" onClick={()=>navigate("/alltherapist")}>
               <p>{e.TherapistName}</p>
             </div>
-          </div>
+          </div> :
+          <div className="TherapistImagebox"  data-aos="fade-left" 
+          data-aos-easing="linear"
+          data-aos-duration="900">
+        <div className="TherapistImage" onClick={()=>navigate("/login")}>
+          <img src={e.image} alt="" />
+        </div>
+        <div className="TherapistName" onClick={()=>navigate("/login")}>
+          <p>{e.TherapistName}</p>
+        </div>
+      </div>
+              }
+              </>
             ))
           }
         </div>
