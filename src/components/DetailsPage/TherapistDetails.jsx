@@ -39,7 +39,7 @@ const TherapistDetails = () => {
         <div className="TherapistHero"></div>
         <div className="TherapistNameAndPicture">
             <div className="TherapistPicture">
-              <img src={profile} alt="" />
+              <img src={therapistinfo.photo} alt="" />
             </div>
             <div className="TherapistDetailsName">
                 <h1>Dr {therapistinfo.firstName} {therapistinfo.lastName}</h1>
@@ -51,10 +51,10 @@ const TherapistDetails = () => {
               <h2>Overview</h2>
             </div>
             <div className="OverViewBoxMain">
-              <p>Dr. Nneoma Okoro specializes in 
+              <p>Dr. {therapistinfo.firstName} {therapistinfo.lastName} specializes in 
                 treating survivors of relationship abuse, domestic violence, and trauma.
                 His expertise includes {therapistinfo.specialty} and post-traumatic stress disorder (PTSD).
-                With a warm and non-judgmental approach, Dr. Okoro creates a safe space for clients to heal and reclaim their lives.
+                With a warm and non-judgmental approach, Dr. {therapistinfo.lastName} creates a safe space for clients to heal and reclaim their lives.
               </p>
             </div>
           </div>
