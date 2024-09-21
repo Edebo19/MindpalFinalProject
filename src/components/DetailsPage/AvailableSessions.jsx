@@ -23,47 +23,19 @@ const AvailableSessions = ({total, setBookSession, therapistinfo, therapistId })
     const handleTimeChange = (e) => {
         setTime(e.target.value);
     };
+    
+    const [Processing, setProcessing] = useState(false)
+    const [done, setDone] = useState(false)
 
-    const bookAppointment = () => {
-        if (!SendTherapistId || !date || !time) {
-            toast.error("Please pick a date and time");
-            return; 
-        }
-
-        function payKorapay() {
-            window.Korapay.initialize({
-                key: import.meta.env.VITE_Ecommerce_key,
-                reference: `mindpal${Date.now()}`,
-                amount: total, 
-                currency: "NGN",
-                customer: {
-                    name: `${userDetails.firstName} ${userDetails.lastName}`,
-                    email: userDetails.email
-                },
-                onSuccess: ()=>{
-                    setSuccessful(true)
-                }
-            });   
-              
-            
-
-            
-        }
-        payKorapay();
-       
-  
-    };
-    const [booking, setBooking] = useState(false)
-    useEffect(()=>{
-        if (successful === true) {
-            setBooking(true)
+    const callApi =()=>{
             const url = `https://mind-pal-8a5l.onrender.com/api/v1/appointment/book/${userId}`;
             const data = { therapistId:SendTherapistId, date, time };
         
             axios.post(url, data)
                 .then((res) => {
-                    setBooking(false)
-                    console.log(res);
+                    console.log(res)
+                    setProcessing(false)
+                    setDone(true)
                     Swal.fire({
                         title: 'That is great',
                         text: "You have taken the first step to mental health care! Your session has successfully been booked. Please check your email for your appointment details",
@@ -86,8 +58,44 @@ const AvailableSessions = ({total, setBookSession, therapistinfo, therapistId })
                     setBooking(false)
                     toast.error("Error booking session");
                 });
-        } 
-    },[successful])
+    }
+
+    if(done === true){
+        navigate("/")
+    }
+
+    const bookAppointment = () => {
+        if (!SendTherapistId || !date || !time) {
+            toast.error("Please pick a date and time");
+            return; 
+        }
+    
+
+        function payKorapay() {
+            window.Korapay.initialize({
+                key: import.meta.env.VITE_Ecommerce_key,
+                reference: `mindpal${Date.now()}`,
+                amount: total, 
+                currency: "NGN",
+                customer: {
+                    name: `${userDetails.firstName} ${userDetails.lastName}`,
+                    email: userDetails.email
+                },
+                onSuccess: ()=>{
+                    setProcessing(true)
+                    callApi()
+                }
+            });   
+              
+            
+
+            
+        }
+        payKorapay();
+       
+  
+    };
+
     return (
         <div className='AvailableSessions'>
             <div className="AvailableSide">
@@ -99,7 +107,12 @@ const AvailableSessions = ({total, setBookSession, therapistinfo, therapistId })
                     <p>Book 1:1 sessions from the options</p>
                 </div>
                 <div className="AvailableSideMain">
-                    <div className="HoldSelectedAppointmentTherapist">
+                    {
+                        Processing ? <div className="holdProcessing">
+                             <h2>Processing...</h2> 
+                        </div>:
+                        <>
+                        <div className="HoldSelectedAppointmentTherapist">
                         <p style={{ fontWeight: "600", fontSize: "18px" }}>Selected Therapist:</p>
                         <div className='TherapistNameAppointment'>
                             <p>Dr {therapistinfo.firstName} {therapistinfo.lastName}</p>
@@ -113,6 +126,8 @@ const AvailableSessions = ({total, setBookSession, therapistinfo, therapistId })
                         <p>Pick Convenient Time:</p>
                         <input type="time" value={time} onChange={handleTimeChange} />
                     </div>
+                        </>
+                    }
                 </div>
                     </>
                     :

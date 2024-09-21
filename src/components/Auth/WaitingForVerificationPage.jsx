@@ -79,23 +79,8 @@ const WaitingForVerificationPage = () => {
         .then((res)=>{
           console.log(res)
           if(res.status === 200){
-            Swal.fire({
-              title: <MyTitle>Hi there! 😊👋</MyTitle>,
-              html: <MyContent>{res.data.message}</MyContent>, 
-              icon: 'success',
-              customClass: {
-                popup: 'my-popup-class',
-                title: 'my-title-class',
-                content: 'my-content-class',
-                confirmButton: 'my-confirm-class',
-              },
-              confirmButtonText: <MyConfirmButton>Okay</MyConfirmButton>, 
-            }).then((result) => {
-              if (result.isConfirmed) {
-                navigate(`/login`);
-              }
-            });
-          }
+           navigate("/login")
+          } 
         })
         .catch((error)=>{
           setLoading(false)

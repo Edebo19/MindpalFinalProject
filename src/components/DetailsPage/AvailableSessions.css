@@ -52,6 +52,14 @@
         background-color: rgb(17, 163, 98);
     }
 }
+.holdProcessing{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .AvailableSideHeader{
     height: 14%;
     width: 100%;
