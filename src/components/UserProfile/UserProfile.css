@@ -11,6 +11,11 @@
     width: 50%;
     background: rgb(234, 227, 227);
     border-radius: 18px;
+
+    @media screen and (max-width:768px) {
+        height: 100%;
+        width: 100%;
+    }
 }
 .UserProfileTop{
     height: 22%;
@@ -26,6 +31,10 @@
     align-items: center;
     margin-top: -60px;
     padding-left: 30px;
+
+    @media screen and (max-width:768px) {
+        padding-left: 5px;
+    }
 }
 .ProfileCircle{
     height: 150px;

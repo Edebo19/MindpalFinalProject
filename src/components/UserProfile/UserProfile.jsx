@@ -1,12 +1,15 @@
 import React, { useState } from 'react'
 import './UserProfile.css'
 import { BiCamera } from 'react-icons/bi'
+import { useSelector } from 'react-redux'
 
 const UserProfile = () => {
     const [edit, setedit] = useState(false)
     const firstname = "Chikwado"
     const lastname = "Ndubisi"
     const email = "kwado@gmail.com"
+    const { userDetails } = useSelector((state)=> state)
+    const username = userDetails
   return (
     <div className='UserProfile'>
         <div className="UserProfileCard">
@@ -22,7 +25,7 @@ const UserProfile = () => {
                 }
             </div>
             <div className="HoldName">
-                <h2>Chikwado Ndubisi</h2>
+                <h2></h2>
                 <p>kwado@gmail.com</p>
             </div>
             {
