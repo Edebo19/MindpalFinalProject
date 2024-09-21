@@ -80,9 +80,13 @@ const Login = () => {
     })
     .catch((error)=>{
       setLoading(false)
-
-      console.log(error)
-      toast.error("Error Logging in")
+      if (error.response.status === 400) {
+        toast.error(`${error.response.data.error}`)
+      } else {
+        toast.error(`${error.response.data.message}`)
+      }
+      console.log(error.response)
+      
     })
   };
 
