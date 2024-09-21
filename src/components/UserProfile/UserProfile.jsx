@@ -10,6 +10,7 @@ const UserProfile = () => {
     const email = "kwado@gmail.com"
     const { userDetails } = useSelector((state)=> state)
     const username = userDetails
+    console.log(username.firstName, "sbdjhbgyu")
   return (
     <div className='UserProfile'>
         <div className="UserProfileCard">

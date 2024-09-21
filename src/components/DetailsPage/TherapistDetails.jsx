@@ -100,7 +100,7 @@ const TherapistDetails = () => {
               <div className="AvailableSessionCloseDiv">
               <RiCloseLargeFill onClick={()=> setBookSession(false)} cursor= "pointer" size={30} color='white' />
               </div>
-             <AvailableSessions total={total} therapistId={therapistId} setTherapistId={setTherapistId} therapistinfo={therapistinfo}/>
+             <AvailableSessions setBookSession={setBookSession} total={total} therapistId={therapistId} setTherapistId={setTherapistId} therapistinfo={therapistinfo}/>
             </div> : null
               }
             </>
