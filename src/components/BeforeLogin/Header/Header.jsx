@@ -38,13 +38,7 @@ const Header = () => {
             setContact(true)
             setTeam(false)
             setTherapist(false)
-         }else  if (pathname === "/therapist"){
-            setAbout(false)
-            setHome(false)
-            setContact(false)
-            setTeam(false)
-            setTherapist(true)
-         } else  if (pathname === "/team"){
+         }else  if (pathname === "/team"){
             setAbout(false)
             setHome(false)
             setContact(false)

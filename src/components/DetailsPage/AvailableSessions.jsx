@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './AvailableSessions.css';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import Swal from 'sweetalert2';
 import axios from 'axios';
 
@@ -41,12 +41,54 @@ const AvailableSessions = ({total, setBookSession, therapistinfo, therapistId })
     
     const [Processing, setProcessing] = useState(false)
     const [done, setDone] = useState(false)
+    const {token} = useSelector((state)=> state)
+    
+    const headers = {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+    };
 
-    const callApi =()=>{
+    // const callApi =async()=>{
+    //         const url = `https://mind-pal-8a5l.onrender.com/api/v1/appointment/book/${userId}`;
+    //         const data = { therapistId:SendTherapistId, date, time };
+        
+    //         axios.post(url, data, {headers})
+    //             .then((res) => {
+    //                 console.log(res)
+    //                 setProcessing(false)
+    //                 setDone(true)
+    //                 Swal.fire({
+    //                     title: 'That is great',
+    //                     text: "You have taken the first step to mental health care! Your session has successfully been booked. Please check your email for your appointment details",
+    //                     icon: 'success',
+    //                     customClass: {
+    //                         popup: 'my-popup-class',
+    //                         title: 'my-title-class',
+    //                         content: 'my-content-class',
+    //                         confirmButton: 'my-confirm-class',
+    //                         cancelButton: 'my-cancel-class'
+    //                     },
+    //                 }).then((result) => {
+    //                     if (result.isConfirmed) {
+    //                         navigate("/"); 
+    //                     }
+    //                 });
+    //             })
+    //             .catch((error) => {
+    //                 console.log(error);
+    //                 setBooking(false)
+    //                 toast.error("Error booking session");
+    //             })
+    //             .finally(()=>{
+    //                 setProcessing(false)
+    //             })
+    // }
+    useEffect(()=>{
+        if(Processing === true){
             const url = `https://mind-pal-8a5l.onrender.com/api/v1/appointment/book/${userId}`;
             const data = { therapistId:SendTherapistId, date, time };
         
-            axios.post(url, data)
+            axios.post(url, data, {headers})
                 .then((res) => {
                     console.log(res)
                     setProcessing(false)
@@ -76,12 +118,14 @@ const AvailableSessions = ({total, setBookSession, therapistinfo, therapistId })
                 .finally(()=>{
                     setProcessing(false)
                 })
-    }
+        }
+    }, [Processing])
 
     if(done === true){
         navigate("/")
     }
 
+    
     const bookAppointment = () => {
         if (!SendTherapistId || !date || !time || minimalTime === true) {
             toast.error("Please pick a future date and time");
@@ -100,7 +144,7 @@ const AvailableSessions = ({total, setBookSession, therapistinfo, therapistId })
                     },
                     onSuccess: ()=>{
                         setProcessing(true)
-                        callApi()
+                        // callApi()
                     }
                 });   
                   
@@ -165,14 +209,20 @@ const AvailableSessions = ({total, setBookSession, therapistinfo, therapistId })
                 </>
                 }
             </div>
-            <div className="Continue">
+           <>
                 {
-                    proceedtoChoose ? 
-                    <button onClick={bookAppointment}>Pay</button>
-                    :
-                <button onClick={()=> setProceedtoChoose(true)}>Continue</button>
+                    Processing ? null :
+                    <div className="Continue">
+                    {
+                        proceedtoChoose ? 
+                        <button onClick={bookAppointment}>Pay</button>
+                        :
+                    <button onClick={()=> setProceedtoChoose(true)}>Continue</button>
+                    }
+                </div>
                 }
-            </div>
+           </>
+            <ToastContainer/>
         </div>
     );
 };

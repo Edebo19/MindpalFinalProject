@@ -56,13 +56,19 @@ const SecondHeader = ({setIsLoggedIn}) => {
         }
         
     },[pathname])
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
     const handleNav = (val)=>{
         if (val=="/"){
+            scrollToTop()
             Navigate("/")
             setIsactive(true)
         }else if (val=="/about"){
+            scrollToTop()
             Navigate("/about")
         }else if (val=="/contact"){
+            scrollToTop()
             Navigate("/contact")
         }else if (val=="/team"){
             Navigate("/about")
@@ -74,6 +80,7 @@ const SecondHeader = ({setIsLoggedIn}) => {
                 }
             }, 100);
         }else if (val=="/alltherapist"){
+            scrollToTop()
             Navigate("/alltherapist")
         }
     } 
@@ -93,6 +100,7 @@ const SecondHeader = ({setIsLoggedIn}) => {
         dispatch(logout())
         Navigate("/login")
     }
+    
     
     return (
         <div className='Header'>

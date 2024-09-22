@@ -147,6 +147,7 @@
     width: 100%;
     background: transparent;
     position: absolute;
+    top: 0;
     display: flex;
     justify-content: flex-end;
 }

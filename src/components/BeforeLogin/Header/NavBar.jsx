@@ -77,23 +77,31 @@ const NavBar = ({setMobile}) => {
         dispatch(logout())
         Navigate("/login")
     }
+    const scrollToTop = () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 const handleHome =()=>{
+  scrollToTop()
   setMobile(false)
   handleNav("/")
 } 
 const handleAbout =()=>{
+  scrollToTop()
   setMobile(false)
   handleNav("/about")
 } 
 const handleTeam =()=>{
+  scrollToTop()
   setMobile(false)
   handleNav("/team")
 } 
 const handleTherapist =()=>{
+  scrollToTop()
   setMobile(false)
-  handleNav("/alltherapist")
+  Navigate("/alltherapist")
 } 
 const handleContact =()=>{
+  scrollToTop()
   setMobile(false)
   handleNav("/contact")
 } 
