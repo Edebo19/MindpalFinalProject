@@ -50,6 +50,7 @@
     width: 210px;
     background: rgb(64, 58, 58);
     border-radius: 50%;
+    cursor: pointer;
 
     & img{
         height: 100%;
@@ -63,6 +64,7 @@
     width: 100%;
     /* background: yellow; */
     text-align: center;
+    cursor: pointer;
 
     & p{
         font-family: var(--generalFontFamily--);

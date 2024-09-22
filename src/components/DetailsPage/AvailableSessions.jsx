@@ -9,9 +9,10 @@ import axios from 'axios';
 const AvailableSessions = ({total, setBookSession, therapistinfo, therapistId }) => {
     const [time, setTime] = useState("");
     const [date, setDate] = useState("");
-    const [successful, setSuccessful] = useState(false)
     const SendTherapistId = therapistId;
     const [proceedtoChoose, setProceedtoChoose] = useState(false)
+    const [minDate, setMinDate] = useState("");
+    const [minTime, setMinTime] = useState("");
     const navigate = useNavigate();
     const { userDetails } = useSelector((state) => state);
     const userId = userDetails._id;
@@ -23,6 +24,20 @@ const AvailableSessions = ({total, setBookSession, therapistinfo, therapistId })
     const handleTimeChange = (e) => {
         setTime(e.target.value);
     };
+    const getTime = new Date().toLocaleTimeString('en-GB', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false
+    })
+    console.log()
+    const minimalTime = getTime >= time
+    console.log(minimalTime)
+
+    useEffect(() => {
+        const today = new Date().toISOString().split('T')[0];
+        setMinDate(today);
+    }, []);
+
     
     const [Processing, setProcessing] = useState(false)
     const [done, setDone] = useState(false)
@@ -65,34 +80,32 @@ const AvailableSessions = ({total, setBookSession, therapistinfo, therapistId })
     }
 
     const bookAppointment = () => {
-        if (!SendTherapistId || !date || !time) {
-            toast.error("Please pick a date and time");
+        if (!SendTherapistId || !date || !time || minimalTime === true) {
+            toast.error("Please pick a future date and time");
             return; 
         }
+        
+            function payKorapay() {
+                window.Korapay.initialize({
+                    key: import.meta.env.VITE_Ecommerce_key,
+                    reference: `mindpal${Date.now()}`,
+                    amount: total, 
+                    currency: "NGN",
+                    customer: {
+                        name: `${userDetails.firstName} ${userDetails.lastName}`,
+                        email: userDetails.email
+                    },
+                    onSuccess: ()=>{
+                        setProcessing(true)
+                        callApi()
+                    }
+                });   
+                  
+                
     
-
-        function payKorapay() {
-            window.Korapay.initialize({
-                key: import.meta.env.VITE_Ecommerce_key,
-                reference: `mindpal${Date.now()}`,
-                amount: total, 
-                currency: "NGN",
-                customer: {
-                    name: `${userDetails.firstName} ${userDetails.lastName}`,
-                    email: userDetails.email
-                },
-                onSuccess: ()=>{
-                    setProcessing(true)
-                    callApi()
-                }
-            });   
-              
-            
-
-            
-        }
-        payKorapay();
-       
+                
+            }
+            payKorapay();
   
     };
 
@@ -120,11 +133,11 @@ const AvailableSessions = ({total, setBookSession, therapistinfo, therapistId })
                     </div>
                     <div className="HoldAppointmentDate">
                         <p>Pick Convenient Date:</p>
-                        <input type="date" value={date} onChange={handleDateChange} />
+                        <input type="date" value={date} min={minDate}  onChange={handleDateChange} />
                     </div>
                     <div className="HoldAppointmentsTime">
                         <p>Pick Convenient Time:</p>
-                        <input type="time" value={time} onChange={handleTimeChange} />
+                        <input type="time" value={time} min={minimalTime}  onChange={handleTimeChange} />
                     </div>
                         </>
                     }
