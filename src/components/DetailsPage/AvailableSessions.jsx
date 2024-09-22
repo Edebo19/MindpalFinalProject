@@ -72,7 +72,10 @@ const AvailableSessions = ({total, setBookSession, therapistinfo, therapistId })
                     console.log(error);
                     setBooking(false)
                     toast.error("Error booking session");
-                });
+                })
+                .finally(()=>{
+                    setProcessing(false)
+                })
     }
 
     if(done === true){

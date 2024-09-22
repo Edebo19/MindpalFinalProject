@@ -85,9 +85,16 @@ const Login = () => {
       });
     })
     .catch((error)=>{
+      console.log(error.response)
       setLoading(false)
       if (error.response.status === 400) {
-        toast.error(`${error.response.data.error}`)
+        if(error.response.data.error === 'Invalid email format.'){
+          
+          toast.error(`${error.response.data.error}`)
+        }
+        else{
+          toast.error(`${error.response.data.message}`)
+        }
       } else {
         toast.error(`${error.response.data.message}`)
       }
