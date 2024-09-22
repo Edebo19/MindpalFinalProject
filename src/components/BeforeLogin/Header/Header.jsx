@@ -47,15 +47,22 @@ const Header = () => {
         }
         
     },[pathname])
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
     const handleNav = (val)=>{
+        scrollToTop()
         if (val=="/"){
             Navigate("/")
             setIsactive(true)
         }else if (val=="/about"){
+            scrollToTop()
             Navigate("/about")
         }else if (val=="/contact"){
+            scrollToTop()
             Navigate("/contact")
         }else if (val=="/team"){
+            scrollToTop()
             Navigate("/about")
 
             setTimeout ( ()=>{
