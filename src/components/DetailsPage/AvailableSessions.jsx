@@ -83,6 +83,9 @@ const AvailableSessions = ({total, setBookSession, therapistinfo, therapistId })
     //                 setProcessing(false)
     //             })
     // }
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
     useEffect(()=>{
         if(Processing === true){
             const url = `https://mind-pal-8a5l.onrender.com/api/v1/appointment/book/${userId}`;
@@ -106,6 +109,7 @@ const AvailableSessions = ({total, setBookSession, therapistinfo, therapistId })
                         },
                     }).then((result) => {
                         if (result.isConfirmed) {
+                            scrollToTop()
                             navigate("/"); 
                         }
                     });
