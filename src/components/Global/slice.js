@@ -4,7 +4,8 @@ const initialState = {
     isLoggedIn: false,
     token:"",
     userDetails:{},
-    bookedTherapistId: ""
+    bookedTherapistId: "",
+    therapistDetails:{}
 };
 
 export const appSlice = createSlice({
@@ -29,14 +30,16 @@ export const appSlice = createSlice({
         },
         saveBookedTherapistId:(state, {payload})=>{
           state.bookedTherapistId = payload
-        }
-        ,
+        },
         checkLogin: (state) => {
           const loggedInStatus = localStorage.getItem('isLoggedIn');
           state.isLoggedIn = loggedInStatus ==='true';
         },
+        saveTherapistDetails:(state, {payload})=>{
+          state.therapistDetails = payload
+        }
       },
     
 })
-export const {login, logout, saveUserDetails, saveToken, saveBookedTherapistId, checkLogin} = appSlice.actions
+export const {login, logout, saveUserDetails, saveToken, saveBookedTherapistId, checkLogin, saveTherapistDetails} = appSlice.actions
 export default appSlice.reducer

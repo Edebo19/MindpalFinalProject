@@ -9,6 +9,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { BiLoaderCircle } from "react-icons/bi";
+import Swal from 'sweetalert2';
 
 const Thesignup = () => {
   const [formData, setFormData] = useState({
@@ -96,9 +97,23 @@ const Thesignup = () => {
         }
       });
       toast.success(response.data);
-      // setTimeout(() => {
-      //   navigate("/therapistlogin");
-      // }, 3000); 
+      console.log(response) 
+      // Swal.fire({
+      //   title: 'Hi there! 😊👋',
+      //   text: `${res.data.message}`,
+      //   icon: 'success',
+      //   customClass: {
+      //     popup: 'my-popup-class',
+      //     title: 'my-title-class',
+      //     content: 'my-content-class',    
+      //     confirmButton: 'my-confirm-class', 
+      //     cancelButton: 'my-cancel-class'   
+      //   },
+      // }).then((result) => {
+      //   if (result.isConfirmed) {
+      //     nav(`/login`);
+      //   }
+      // });
     } catch (error) {
       console.log(error);
       

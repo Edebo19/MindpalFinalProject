@@ -94,7 +94,7 @@
 }
 .DashboardCard{
     height: 95%;
-    width: 30%;
+    width: 30% !important   ;
     background: white;
     border-radius: 8px;
     display: flex;
@@ -210,16 +210,19 @@
         height: 9vh;
     }
     .HoldCardsInDashboard{
-        height: 85vh;
+        height: max-content !important;
         padding: 10px;
-        /* background: red; */
         flex-direction: column;
         gap: 20px;
     }
+
     .DashboardCard{
-        width: 100%;
+        height: 180px !important;
+        width: 100% !important;
     }
     .DashboardCardBigger{
+        height: 180px !important;
+        width: 100% !important;
         width: 100%;
     }
     .UpcomingApointments{

@@ -37,56 +37,7 @@ const Therapist = () => {
   useEffect(()=>{
     getAllTherapists()
   },[token])
-    // const therapists = [
-    //     {
-    //       image: first,
-    //       TherapistName: "Dr Joana Jacobs"
-    //     },
-    //     {
-    //       image: firstman,
-    //       TherapistName: "Dr Victor Shola"
-    //     },
-    //     {
-    //       image: second,
-    //       TherapistName: "Dr Veronica German"
-    //     },
-    //     {
-    //       image: secondman,
-    //       TherapistName: "Dr James Jeff"
-    //     },
-    //     {
-    //       image: first,
-    //       TherapistName: "Dr Joana Jacobs"
-    //     },
-    //     {
-    //       image: firstman,
-    //       TherapistName: "Dr Victor Shola"
-    //     },
-    //     {
-    //       image: second,
-    //       TherapistName: "Dr Veronica German"
-    //     },
-    //     {
-    //       image: secondman,
-    //       TherapistName: "Dr James Jeff"
-    //     },
-    //     {
-    //       image: first,
-    //       TherapistName: "Dr Joana Jacobs"
-    //     },
-    //     {
-    //       image: firstman,
-    //       TherapistName: "Dr Victor Shola"
-    //     },
-    //     {
-    //       image: second,
-    //       TherapistName: "Dr Veronica German"
-    //     },
-    //     {
-    //       image: secondman,
-    //       TherapistName: "Dr James Jeff"
-    //     },
-    //   ]
+
 
   return (
     <div className='Therapist'>

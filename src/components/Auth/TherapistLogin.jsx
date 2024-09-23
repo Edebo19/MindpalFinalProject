@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
-import { login } from '../Global/slice';
+import { login, saveTherapistDetails } from '../Global/slice';
 import { BiLoaderCircle } from 'react-icons/bi';
 import Swal from 'sweetalert2';
 
@@ -49,7 +49,6 @@ const TherapistLogin = () => {
   };
 
 
-
   const handleSubmit = async () => {
     setLoading(true)
     if (!validateForm()) return;
@@ -62,9 +61,9 @@ const TherapistLogin = () => {
     const LoginUrl = `${url}/therapist/log-in`
     axios.post(LoginUrl, formData)
     .then((res)=>{
-      console.log(res.data.data._id)
+      console.log(res.data)
       setLoading(false)
-      
+      dispatch(saveTherapistDetails(res.data.data))
       Swal.fire({
         title: "Welcome!",
         text: "Login Successful!",
