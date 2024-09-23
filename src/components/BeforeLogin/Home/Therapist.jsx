@@ -14,12 +14,14 @@ import { useSelector } from 'react-redux'
 const Therapist = () => {
 
   const [therapists, setTherapists] = useState([])
+  const [gettingTherapists, setGettingTherapists] = useState(false)
   const {token} = useSelector((state)=> state)
   const navigate = useNavigate()
   useEffect(()=>{
     Aos.init();
   },[])
   const getAllTherapists=()=>{
+    setGettingTherapists(true)
     const url = "https://mind-pal-8a5l.onrender.com/api/v1/therapist/all"
     const headers = {
       Authorization: `Bearer ${token}`, 
@@ -28,9 +30,11 @@ const Therapist = () => {
     axios.get(url, {headers})
     .then((res)=>{
       console.log(res.data.data)
+      setGettingTherapists(false)
       setTherapists(res.data.data)
     })
     .catch((error)=>{
+      setGettingTherapists(false)
       console.log(error)
     })
   }
@@ -45,7 +49,15 @@ const Therapist = () => {
         <h2>Our Therapists</h2>
         <p>Click on a therapist to know more about them and book a session.</p>
         </div>
-        <div className="MainTherapistCircles">
+        {
+          gettingTherapists ?
+          <div style={{height: "20vh", width: "100%", display: "flex", justifyContent:"center", alignItems:"center"}} className="HoldGettingallTherapists">
+           <p style={{fontSize:'20px', fontWeight: "500"}}>
+           Getting Therapists. Please wait...
+           </p>
+          </div>
+          :
+          <div className="MainTherapistCircles">
           {
             therapists.map((e)=>(
               <div className="TherapistImagebox"  data-aos="fade-left" 
@@ -61,6 +73,7 @@ const Therapist = () => {
             ))
           }
         </div>
+        }
     </div>
   )
 }
