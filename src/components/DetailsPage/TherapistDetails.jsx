@@ -3,7 +3,7 @@ import './TherapistDetails.css'
 import profile from '../../assets/mr2.jpeg'
 import AvailableSessions from './AvailableSessions'
 import { RiCloseLargeFill } from 'react-icons/ri'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useSelector } from 'react-redux'
 
@@ -34,6 +34,7 @@ const TherapistDetails = () => {
   useEffect(()=>{
     getOneTherapist()
   },[])
+  const navigate = useNavigate()
   return (
     <div className='TherapistDetails'>
         <div className="TherapistHero"></div>
@@ -98,7 +99,7 @@ const TherapistDetails = () => {
                 bookSession ? 
                 <div className="AvailableSessionsHolder">
               <div className="AvailableSessionCloseDiv">
-              <RiCloseLargeFill onClick={()=> setBookSession(false)} cursor= "pointer" size={30} color='white' />
+              <RiCloseLargeFill onClick={()=> navigate("/alltherapist") } cursor= "pointer" size={30} color='white' />
               </div>
              <AvailableSessions setBookSession={setBookSession} total={total} therapistId={therapistId} setTherapistId={setTherapistId} therapistinfo={therapistinfo}/>
             </div> : null
