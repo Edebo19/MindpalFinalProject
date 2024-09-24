@@ -1,9 +1,16 @@
 import React, { useState } from 'react'
 import './FirstPage.css'
+import { useSelector } from 'react-redux'
 
 const SubFirstPage = ({setPaynow}) => {
 
     const [subscription, setSubscription]= useState(false)
+    const {therapistDetails} = useSelector((state)=> state)
+    const {subStatus} = useSelector((state)=> state)
+
+    const subscriptionStatus = therapistDetails
+    console.log(subscriptionStatus)
+    console.log(su)
   return (
     <div className='SubFirstPage'>
         {

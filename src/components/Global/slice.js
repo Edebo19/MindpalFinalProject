@@ -5,7 +5,8 @@ const initialState = {
     token:"",
     userDetails:{},
     bookedTherapistId: "",
-    therapistDetails:{}
+    therapistDetails:{},
+    subStatus: false
 };
 
 export const appSlice = createSlice({
@@ -41,5 +42,5 @@ export const appSlice = createSlice({
       },
     
 })
-export const {login, logout, saveUserDetails, saveToken, saveBookedTherapistId, checkLogin, saveTherapistDetails} = appSlice.actions
+export const {login, logout, saveUserDetails, PositiveSubStatus, saveToken, saveBookedTherapistId, checkLogin, saveTherapistDetails} = appSlice.actions
 export default appSlice.reducer

@@ -30,12 +30,12 @@ const AvailableSessions = ({total, setBookSession, therapistinfo, therapistId })
         hour12: false
     })
     console.log()
-    const minimalTime = getTime >= time
-    console.log(minimalTime)
 
     useEffect(() => {
-        const today = new Date().toISOString().split('T')[0];
-        setMinDate(today);
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1); // Set to the next day
+        const formattedDate = tomorrow.toISOString().split('T')[0]; // Format to YYYY-MM-DD
+        setMinDate(formattedDate);
     }, []);
 
     
@@ -99,7 +99,7 @@ const AvailableSessions = ({total, setBookSession, therapistinfo, therapistId })
 
     
     const bookAppointment = () => {
-        if (!SendTherapistId || !date || !time || minimalTime === true) {
+        if (!SendTherapistId || !date || !time ) {
             toast.error("Please pick a future date and time");
             return; 
         }
@@ -155,7 +155,7 @@ const AvailableSessions = ({total, setBookSession, therapistinfo, therapistId })
                     </div>
                     <div className="HoldAppointmentsTime">
                         <p>Pick Convenient Time:</p>
-                        <input type="time" value={time} min={minimalTime}  onChange={handleTimeChange} />
+                        <input type="time" value={time}  onChange={handleTimeChange} />
                     </div>
                         </>
                     }
