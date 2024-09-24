@@ -100,7 +100,7 @@
     } 
 }
 
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 768px) {
     .PrimaryBox{
         width: 100%;
         background: #eefff7;
