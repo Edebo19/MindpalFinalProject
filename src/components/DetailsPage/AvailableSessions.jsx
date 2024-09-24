@@ -88,44 +88,12 @@ const AvailableSessions = ({total, setBookSession, therapistinfo, therapistId })
     };
     useEffect(()=>{
         if(Processing === true){
-            const url = `https://mind-pal-8a5l.onrender.com/api/v1/appointment/book/${userId}`;
-            const data = { therapistId:SendTherapistId, date, time };
-        
-            axios.post(url, data, {headers})
-                .then((res) => {
-                    console.log(res)
-                    setProcessing(false)
-                    setDone(true)
-                    Swal.fire({
-                        title: 'That is great',
-                        text: "You have taken the first step to mental health care! Your session has successfully been booked. Please check your email for your appointment details",
-                        icon: 'success',
-                        customClass: {
-                            popup: 'my-popup-class',
-                            title: 'my-title-class',
-                            content: 'my-content-class',
-                            confirmButton: 'my-confirm-class',
-                            cancelButton: 'my-cancel-class'
-                        },
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            scrollToTop()
-                            navigate("/"); 
-                        }
-                    });
-                })
-                .catch((error) => {
-                    console.log(error);
-                    setBooking(false)
-                    toast.error("Error booking session");
-                })
-                .finally(()=>{
-                    setProcessing(false)
-                })
-        }
+            callApi()
+        }   
     }, [Processing])
 
     if(done === true){
+        scrollToTop()
         navigate("/")
     }
 
@@ -148,7 +116,6 @@ const AvailableSessions = ({total, setBookSession, therapistinfo, therapistId })
                     },
                     onSuccess: ()=>{
                         setProcessing(true)
-                        callApi()
                     }
                 });   
                   
