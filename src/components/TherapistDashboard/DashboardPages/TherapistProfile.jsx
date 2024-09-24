@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './TherapistProfile.css'
+import { useSelector } from 'react-redux'
 
 const TherapistProfile = () => {
 
@@ -9,6 +10,10 @@ const TherapistProfile = () => {
   const TherapistEmail = "nneomaokafor@gmail.com"
 
   const [edit, setEdit] = useState(false)
+  const { therapistDetails } = useSelector((state)=> state)
+  
+  const therapist = therapistDetails
+  console.log(therapist)
 
   return (
     <div className='TherapistProfile'>
@@ -16,6 +21,11 @@ const TherapistProfile = () => {
         <div className="TherapistProfileHeader">
           <h2>Profile</h2>
           <p>User Information</p>
+        </div>
+        <div className="holdtherapistProfileImage">
+          <div className="ImageProfileImage">
+            <img src={therapist.photo} alt="" />
+          </div>
         </div>
         <>
           {
@@ -34,22 +44,22 @@ const TherapistProfile = () => {
           <div className='ProfileForm'>
           <div className="InputHolder">
             <p>Firstname</p>
-          <div  className='input'>{TherapistFirstName}</div>
+          <div  className='input'>{therapist.firstName}</div>
           </div>
           <div className="InputHolder">
             <p>Lastname</p>
-            <div  className='input'>{TherapistLastName}</div>
+            <div  className='input'>{therapist.lastName}</div>
           </div>
           <div className="InputHolder">
             <p>Email</p>
-          <div className='input'>{TherapistEmail}</div>
+          <div className='input'>{therapist.email}</div>
           </div>
           <button onClick={()=>setEdit(true)}>Edit Profile</button>
         </div>
           }
         </>
       </div>
-      <div className="HoldTherapistPassword">
+      {/* <div className="HoldTherapistPassword">
       <div className="TherapistProfileHeader">
           <h2>Password</h2>
         </div>
@@ -68,7 +78,7 @@ const TherapistProfile = () => {
           </div>
           <button >Save changes</button>
         </form>
-      </div>
+      </div> */}
     </div>
   )
 }

@@ -5,41 +5,44 @@
     display: flex;
     flex-direction: column;
     padding-left: 20px;
-    margin-top: 20px;
+    margin-top: 15px;
     gap: 30px;
-    margin-bottom:30px;
     border-radius: 20px;
 }
 .HoldProfileTherapist{
-    height: 65vh;
+    height: 95vh;
     width: 100%;
-    /* background: rebeccapurple; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-right: 20px;
+    padding-bottom: 5px;
 
     .TherapistProfileHeader{
-        height: 18%;
+        height: 13%;
         width: 100%;
 
         & h2{
             font-family: var(--generalFontFamily--);
-            font-size: 25px;
+            font-size: 32px;
         }
 
         & p{
             font-family: var(--generalFontFamily--);
-            font-size: 14px;
+            font-size: 20px;
         }
     }
     .ProfileForm{
-        height: 80%;
-        width: 78%;
-        /* background: yellow; */
+        height: 58%;
+        width: 100%;
         display: flex;
         flex-direction: column;
+        justify-content: center;
         gap: 10px;
 
         .InputHolder{
             height: 32%;
-            width: 100%;
+            width:85%;
             /* background: #8a7777; */
             display: flex;
             flex-direction: column;
@@ -63,7 +66,7 @@
             }
         }
         button{
-            height: 17%;
+            height: 14%;
             width: max-content;
             background: green;
             border: none;
@@ -73,23 +76,44 @@
             padding: 10px;
             color: white;
             cursor: pointer;
+            display: flex;
+            align-self: flex-end;
 
             @media screen and (max-width: 768px) {
                 height: max-content;
             }
         }
     }
+    .holdtherapistProfileImage{
+        height: 28%;
+        width: 100%;
+
+        & .ImageProfileImage{
+            height: 150px;
+            width: 150px;
+            border-radius: 50%;
+            background: black;
+
+            img{
+                height: 100%;
+                width: 100%;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+        }
+    }
     form{
         height: 80%;
-        width: 78%;
-        /* background: yellow; */
+        width: 100%;
         display: flex;
         flex-direction: column;
+        padding-left: 0;
+        align-items: flex-start;
         gap: 20px;
 
         .InputHolder{
             height: 28%;
-            width: 100%;
+            width: 85%;
             /* background: #8a7777; */
             display: flex;
             flex-direction: column;
@@ -97,22 +121,22 @@
 
             p{
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                font-size: 17px;
+                font-size: 20px;
             }
             input{
-                height: 70%;
+                height: 65%;
                 width: 100%;
                 background: transparent;
                 /* border: 1px; */
                 border-radius: 8px;
                 padding-left: 10px;
                 outline: none;
-                font-size: 14px;
+                font-size: 16px;
                 color: #B2B2B2;
             }
         }
         button{
-            height: 17%;
+            height: 14%;
             width: max-content;
             background: green;
             border: none;
@@ -122,6 +146,8 @@
             padding: 10px;
             color: white;
             cursor: pointer;
+            display: flex;
+            align-self: flex-end;
 
             @media screen and (max-width: 768px) {
                 height: max-content;

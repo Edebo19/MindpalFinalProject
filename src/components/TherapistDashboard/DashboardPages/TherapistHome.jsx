@@ -1,10 +1,14 @@
 import React from 'react'
 import './TherapistHome.css'
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 
 const TherapistHome = () => {
   const navigate = useNavigate()
+  const { therapistDetails } = useSelector((state)=> state)
+  
+  const therapist = therapistDetails
 
   const handleClick = () => {
     navigate("/user/therapist-dashboard/subscription", { replace: true });
@@ -12,7 +16,7 @@ const TherapistHome = () => {
   return (
     <div className='TherapistHome'>
       <div className="Welcome">
-        <h2>Welcome, Dr Nneoma</h2>
+        <h2>Welcome, Dr {therapist.firstName}</h2>
       </div>
       <div className="HoldCardsInDashboard">
         <div className="DashboardCard">
