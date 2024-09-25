@@ -137,7 +137,7 @@
     height: 100%;
     width: 15%;
     /* background: red; */
-    display: flex;
+    display: none;
     justify-content: flex-end;
     align-items: center;
     display: flex;
