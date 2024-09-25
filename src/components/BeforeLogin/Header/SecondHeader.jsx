@@ -119,14 +119,13 @@ const SecondHeader = ({setIsLoggedIn}) => {
                         </ul>
                     </nav>
                     <div className="Auth">
-                    <IoMdNotificationsOutline size={24}/>
                     <div className="Account" onClick={()=>Navigate("/therapistLayout/user-profile")}> <AiOutlineUser size={24} /> My Profile</div>
                     <button onClick={logoutFunction} >Logout</button>
                         
                 </div>
                 </div>
                 <div className="menu" onClick={() => setMobile(true)}>
-                    <AiOutlineMenu size={35} />
+                    {/* <AiOutlineMenu className='ProfileIcon' size={35} /> */}
                 </div>
             </div>
             {

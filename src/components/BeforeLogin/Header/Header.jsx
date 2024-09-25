@@ -109,7 +109,7 @@ const Header = () => {
                 </div>
                 </div>
                 <div className="menu" onClick={() => setMobile(true)}>
-                    <AiOutlineMenu size={35} />
+                    <AiOutlineMenu className='ProfileIcon' size={35} />
                 </div>
             </div>
             {

@@ -235,3 +235,40 @@
         }
     }
 }
+@media screen and (min-width:1750px) and (max-width:4200px) {
+    .Header{
+        height: 120px;
+    }
+    .mainNav{
+
+        & ul{
+            & .NavActive{
+                font-size: 39px;
+            }
+            & .NavNotActive{
+                font-size: 40px;
+            }
+        }
+    }
+    .Auth{
+
+        & .Account{
+            height: 80px;
+            width: 180px;
+            font-size: 33px;
+        }
+
+        & button{
+            height: 80px;
+            width: 180px;
+            font-size: 33px;
+        }
+    }
+    /* .menu{
+        display: none;
+        .ProfileIcon{
+            height: 100px !important;
+            width: 100px !important;
+        }
+    } */
+}

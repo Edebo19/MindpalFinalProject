@@ -104,6 +104,10 @@
     align-items: center;
     
 }
+.icon{
+    height: 60%;
+    width: 60%;
+}
 .QualityTextBox{
     height: 100%;
     width: 75%;
@@ -143,6 +147,7 @@
     height: 90%;
     width: 40%;
     background-image: url(../../../assets/Accesstotherapist.png);
+    background-position: center;
     background-size: cover;
     border-top-left-radius: 40px;
     border-bottom-right-radius: 40px;
@@ -252,6 +257,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-top: 10px;
     gap: 10px;
 }
 .Meet{
@@ -280,7 +286,6 @@
 .TherapistImagebox{
     height: 230px;
     width: 240px;
-    /* background: seagreen; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -466,6 +471,20 @@
     .QualityCard{
         height: 165px;
         width: 100%;
+    }
+    .icon{
+        height: 75%;
+        width: 75%;
+    }
+    .QualityHeader{
+        & h5{
+            font-size: 1.8rem;
+        }
+    }
+    .QualityTextArea{
+        & p{
+            font-size: 1.05rem;
+        }
     }
     .TherapistAccess{
         height: 100vh;
@@ -713,6 +732,113 @@
 }
 @media screen and (min-width: 570px) and (max-width:768px) {
     .YourConcernImage{
-        height: 120vh;
+        height: 75vh;
     }
+}
+@media screen and (min-width:1750px) and (max-width:4200px) {
+    .HeroImageText{
+        .HeroText{
+            & h1{
+                font-size: 100px;
+            }
+
+            & p{
+                font-size: 50px;
+            }
+        }
+        .HeroButton{
+            & button{
+                height: 85%;
+                font-size: 40px;
+            }
+        }
+    }
+    .QualityHeader{
+        & h5{
+            font-size: 3rem;
+        }
+    }
+    .QualityTextArea{
+        & p{
+            font-size: 2rem;
+        }
+    }
+    .TherapistAccessPicture{
+        width: 45%;
+    }
+    .TherapistAccessMainWriteUp{
+        height: 50%;
+
+        & h4{
+            font-size: 71px;
+        }
+        & p{
+            font-size: 45px;
+        }
+    }
+    .JoinUsButton{
+        & button{
+            height: 120px;
+            width: 650px;
+            font-size: 40px;
+        }
+    }
+    .ValuesHeader{
+        & h3{
+            font-size: 80px;
+        }
+    }
+    .ValuesWriteup{
+        & p{
+            font-size: 50px;
+        }
+    }
+    .MeetOurTherapists{
+        gap: 50px;
+    }
+    .Meet{
+        & h4{
+            font-size: 60px;
+        }
+    }
+    .TherapistImagebox{
+        height: 500px !important;
+        width: 450px !important;
+    }
+    .TherapistImage{
+        height: 380px !important;
+        width: 380px !important;
+    }
+    .TherapistName{
+        height: 80px !important;
+        & p{
+            font-size: 50px !important;
+        }
+    }
+    .YourConcernsheader{
+
+        & h2{
+            font-size: 80px;
+        }
+    }
+    .YourComcernWriteUp{
+        & p{
+            font-size: 48px;
+        }
+    }
+    .OurClientsHeader{
+
+        & h3{
+            font-size: 80px;
+        }
+    }
+    .OurClientsCard{
+        height: 70%;
+    }
+    .clientReview{
+        & p{
+            font-size: 36px;
+        }
+    }
+    
 }

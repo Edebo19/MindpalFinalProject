@@ -26,25 +26,26 @@ const Home = () => {
   const Qualities = [
     {
       Quality: "Simplicity",
-      icon: <LiaBrainSolid  size={60}/>,
+      icon: <LiaBrainSolid className='icon' size={60}/>,
       TheAnimation: "fade-right",
       AboutQuality: "No complicated process or unnecessary barriers. Just simple effective mental health support."
     },
     {
       Quality: "Efficiency",
-      icon: <FaRegClock size={60}/>,
+      icon: <FaRegClock className='icon' size={60}/>,
       TheAnimation: "fade-right",
       AboutQuality: "Maximize your time, minimize wait. Get effective support when you need it."
     },
     {
       Quality: "Accessibility",
-      icon: <LuMessageCircle  size={60}/>,
+      icon: <LuMessageCircle className='icon'  size={60}/>,
       TheAnimation: "fade-left",
       AboutQuality: "Get online therapy from anywhere with flexible scheduling."
     }
   ]
   const therapists = [
     {
+      
       image: first,
       TherapistName: "Dr Joana Jacobs"
     },

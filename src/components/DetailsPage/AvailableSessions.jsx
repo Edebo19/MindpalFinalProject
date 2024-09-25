@@ -33,8 +33,8 @@ const AvailableSessions = ({total, setBookSession, therapistinfo, therapistId })
 
     useEffect(() => {
         const tomorrow = new Date();
-        tomorrow.setDate(tomorrow.getDate() + 1); // Set to the next day
-        const formattedDate = tomorrow.toISOString().split('T')[0]; // Format to YYYY-MM-DD
+        tomorrow.setDate(tomorrow.getDate() + 1); 
+        const formattedDate = tomorrow.toISOString().split('T')[0]; 
         setMinDate(formattedDate);
     }, []);
 
