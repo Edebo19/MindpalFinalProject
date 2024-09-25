@@ -47,19 +47,19 @@ const Home = () => {
     {
       
       image: first,
-      TherapistName: "Dr Joana Jacobs"
+      TherapistName: "Dr Dorcas Miller"
     },
     {
       image: firstman,
-      TherapistName: "Dr Victor Shola"
+      TherapistName: "Dr Chidera Dice"
     },
     {
       image: second,
-      TherapistName: "Dr Veronica German"
+      TherapistName: "Dr Mary Ikechi"
     },
     {
       image: secondman,
-      TherapistName: "Dr James Jeff"
+      TherapistName: "Dr Zico Billz"
     },
   ]
   const Reviews = [
