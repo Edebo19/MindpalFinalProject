@@ -12,7 +12,7 @@ const TherapistDetails = () => {
   const {id}= useParams()
   const [therapistId, setTherapistId] = useState("")
   const [therapistinfo, setTherapistinfo] = useState("")
-  const [total, setTotal] = useState(30000)
+  const [total, setTotal] = useState(10000)
   // const item = therapist.find(item => item.id === parseInt(id));
   // console.log(item)
   console.log(therapistinfo)
