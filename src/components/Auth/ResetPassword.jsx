@@ -3,6 +3,7 @@ import './ResetPassword.css'
 import authlogo from '../../assets/mainmain.png'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
+import Swal from 'sweetalert2'
 
 const ResetPassword = () => {
     const [newPassword, setNewPassword] = useState("")
@@ -35,7 +36,7 @@ const ResetPassword = () => {
     
       const handlePassword = (e) => {
         const newPassword = e.target.value;
-        setpassword(newPassword);
+        setNewPassword(newPassword);
         validatePassword(newPassword);
       };
 
@@ -45,6 +46,21 @@ const ResetPassword = () => {
         axios.post(resetUrl, {newPassword})
         .then((res)=>{
             console.log(res)
+            Swal.fire({
+              title: "Yay!",
+              text: "Password resetting successful",
+              icon: "success",
+              customClass: {
+                popup: 'my-popup-class',
+                title: 'my-title-class',
+                content: 'my-content-class',
+                confirmButton: 'my-confirm-class',
+              },
+            }).then((result) => {
+              if (result.isConfirmed) {
+                navigate("/login");
+              }
+            });
         })
         .catch((error)=>{
             console.log(error)

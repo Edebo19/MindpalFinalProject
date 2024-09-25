@@ -138,6 +138,7 @@
                 font-size: 25px;
                 display: flex;
                 align-items: center;
+                cursor: pointer;
             }
         }
         & .signupButton{
@@ -151,6 +152,7 @@
             font-weight: bold;
             border-radius: 5px;
             margin-left: 68%;
+            cursor: pointer;
         }
     }
 }
